@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Section scroll identifier</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+    nav {
+      height: 60px;
+      padding: 1rem;
+    }
+    main {
+      height: calc(100vh - 100px);
+      scroll-behavior: smooth;
+      overflow: scroll;
+    }
+    section {
+      height: 100%;
+      border: 2px solid red;
+    }
+  </style>
+  <body>
+    <nav>
+    </nav>
+    <main>
+      <section id='home-page-section'>
+        Home Page
+      </section>
+      <section id='exp-timeline-section'>
+        Experience Timeline
+      </section>
+      <section id='projects-section'>
+        Projects
+      </section>
+      <section id='about-me-section'>
+        About Me
+      </section>
+    </main>
+  </body>
+  <script>
+    const MAIN_SECTION = document.getElementsByTagName('main')[0]
+    const NAV = document.getElementsByTagName('nav')[0]
+    const MAIN_SECTION_HEIGHT = MAIN_SECTION.clientHeight
+
+    var scrollPos = 0
+
+    MAIN_SECTION.onscroll = () => {
+      updateHeaderViaSectionScroll()
+      getScrolldirection(event)
+    }
+
+    updateHeaderViaSectionScroll = () => {
+      let sectionList = Array.from(MAIN_SECTION.getElementsByTagName('section'))
+      sectionList.map(section => {
+        let position = section.getBoundingClientRect();
+
+      	if(position.top < MAIN_SECTION_HEIGHT && position.bottom >= 0) {
+      		NAV.innerHTML = section.innerHTML
+      	}
+      })
+    }
+
+
+    getScrolldirection = (evt) => {
+      if ((evt.srcElement.children[0].getBoundingClientRect()).top > scrollPos)
+      		console.log('UP')
+      else
+      		console.log('DOWN')
+      scrollPos = (evt.srcElement.children[0].getBoundingClientRect()).top
+    }
+  </script>
+</html>

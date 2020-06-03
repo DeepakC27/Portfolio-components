@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timeline</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+</head>
+<style type="text/css">
+	body {
+		font-size: 20px;
+		font-family: sans-serif;
+		scroll-behavior: smooth;
+		margin: 0;
+	}
+	nav {
+		height: 60px;
+		padding: 1rem 0;
+		text-align: center;
+	}
+	main {
+		height: calc(100vh - 6rem);
+    position: relative;
+		overflow: scroll;
+	}
+  .timeline-slider-wrapper {
+    height: 100%;
+    position: fixed;
+		top: 25vh;
+  }
+  .timeline-slider-outline {
+    position: fixed;
+		right: -250px;
+		height: 400px;
+		width: 400px;
+		border: 2px dotted black;
+		border-radius: 50%;
+    z-index: 0;
+  }
+	.timeline-slider {
+		position: fixed;
+		right: -245px;
+		height: 400px;
+		width: 400px;
+		border-radius: 50%;
+		border-color: none;
+		text-align: center;
+    transition: .65s ease-in-out;
+    z-index: 1;
+	}
+	.timeline-slider span {
+		background: white;
+		position: absolute;
+		padding: .5rem;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 2px solid black;
+    transform: scale(.5);
+    transition: .5s ease-in-out;
+	}
+	.timeline-slider:nth-child(1) {
+		border-top-color: black;
+	}
+	.timeline-slider:nth-child(1) span {
+    top: 46.5%;
+    left: -3%;
+    transform: scale(1);
+	}
+	.timeline-slider:nth-child(2) {
+		border-right-color: black;
+	}
+	.timeline-slider:nth-child(2) span {
+    left: 47%;
+	  top: -3%;
+	}
+	.timeline-slider:nth-child(3) {
+		border-bottom-color: black;
+	}
+	.timeline-slider:nth-child(3) span {
+		top: 46.5%;
+    right: -3%;
+	}
+	.timeline-slider:nth-child(4) {
+		border-left-color: black;
+	}
+	.timeline-slider:nth-child(4) span {
+    bottom: -3%;
+	  left: 47%;
+	}
+  .date-container {
+    position: fixed;
+    height: 35px;
+    width: 100px;
+    right: 1rem;
+    overflow: hidden;
+    top: 48vh;
+  }
+  .date-transition-wrapper {
+    position: relative;
+		transition: 1s ease-in-out;
+  }
+  .date-transition-wrapper > div {
+    padding: 5px;
+  }
+  section:nth-child(1) {
+    position: absolute;
+    display: block
+  }
+  button {
+    width: 150px;
+    padding: .6rem 1rem;
+    background: white;
+    border: 2px solid red;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+  }
+	#time-line-content-wrapper {
+		margin: 5rem;
+	}
+	#time-line-content-wrapper article {
+		padding: 5rem;
+		display: flex;
+		align-items: center;
+		height: 200px;
+		border: 2px solid red;
+	}
+	Footer {
+		margin: 5rem;
+		padding: 5rem;
+	}
+</style>
+<body>
+	<nav>
+		Timeline slider
+	</nav>
+	<main>
+    <div class='timeline-slider-wrapper'>
+      <div class='timeline-slider rotate'>
+        <span />
+  		</div>
+  		<div class='timeline-slider rotate'>
+  			<span />
+  		</div>
+  		<div class='timeline-slider rotate'>
+  			<span />
+  		</div>
+  		<div class='timeline-slider rotate'>
+  			<span />
+  		</div>
+      <div class='timeline-slider-outline'>
+      </div>
+    </div>
+    <div class='date-container'>
+      <div class='date-transition-wrapper'>
+        <div>2010</div>
+        <div>2015</div>
+        <div>2020</div>
+        <div>2025</div>
+      </div>
+    </div>
+		<section id='time-line-content-wrapper' data-scroll-speed="9">
+			<article>2010</article>
+			<article>2015</article>
+			<article>2020</article>
+			<article>2025</article>
+		</section>
+		<Footer>
+			Footer
+		</Footer>
+	</main>
+</body>
+<script>
+  const timeLineSliderList = Array.from(document.getElementsByClassName('timeline-slider'))
+  const dateTransitionWrapper = document.getElementsByClassName('date-transition-wrapper')[0]
+	const MainWrapper = document.getElementsByTagName('main')[0]
+	const ContentWrapper = document.getElementById('time-line-content-wrapper')
+	const DateContainer = document.getElementsByClassName('date-container')[0]
+
+  let timeline_slider_val = 0
+  let active_timeLine_slider_indx = 0
+  let timeline_date_tranform_val = 35
+	let activeDateIndx = 0
+
+
+	getActiveDateSection = () => {
+		const Date_pos = DateContainer.getBoundingClientRect()
+		Array.from(ContentWrapper.children).map((section, index) => {
+			let sectionPos = section.getBoundingClientRect()
+			if(sectionPos.top < Date_pos.top && sectionPos.bottom > Date_pos.bottom) {
+				if (activeDateIndx !== index) {
+					let dir = activeDateIndx < index ? 1 : 0
+					activeDateIndx = index
+					console.log('active section: ', section.innerHTML)
+					timelineRotationHandler()
+				}
+			}
+		})
+	}
+
+	MainWrapper.addEventListener('scroll', _.throttle(getActiveDateSection, 10))
+
+  updateActiveTimelineSliderIndx = (dir) => {
+    if (dir) {
+      // <-----
+      if (timeLineSliderList.length - 1 === active_timeLine_slider_indx ) {
+        active_timeLine_slider_indx = 0
+      } else {
+        ++active_timeLine_slider_indx
+      }
+    } else {
+      // ------>
+      if (active_timeLine_slider_indx === 0) {
+        active_timeLine_slider_indx = timeLineSliderList.length - 1
+      } else {
+        --active_timeLine_slider_indx
+      }
+    }
+  }
+
+  timelineRotationHandler = (dir) => {
+    incDateSliderVal(dir)
+    updateActiveTimelineSliderIndx(dir)
+    timeLineSliderList.map((slider, index) => {
+      slider.style.transform = `rotate(${timeline_slider_val}deg)`
+      if (index === active_timeLine_slider_indx) {
+        slider.children[0].style.transform = `scale(1)`
+      } else {
+        slider.children[0].style.transform = `scale(.5)`
+      }
+    })
+    setTimeline_Date(dir)
+  }
+
+  incDateSliderVal = (type) => {
+    if (timeline_slider_val === 270 || timeline_slider_val === -270) {
+      timeline_slider_val = 0
+    } else {
+      if (type) {
+        timeline_slider_val += -90
+      } else {
+        timeline_slider_val += 90
+      }
+    }
+  }
+
+  setTimeline_Date = (dir) => {
+    dateTransitionWrapper.style.transform = `translateY(-${timeline_date_tranform_val}px)`
+    if (Math.ceil(timeline_date_tranform_val) === 105) {
+      timeline_date_tranform_val = 0
+    } else {
+      timeline_date_tranform_val += 35
+    }
+  }
+</script>
+</html>

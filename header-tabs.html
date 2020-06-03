@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scrolling header</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      font-size: 20px;
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+    }
+    /* -------- Nav bar styles --------- */
+    nav {
+      padding: 2rem;
+      position: relative;
+    }
+    .logo {
+      width: fit-content;
+    }
+    .nav-headers-wrapper {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 2rem;
+      width: 150px;
+      height: 30px;
+      text-align: center;
+      border-bottom: 2px solid red;
+      overflow: hidden;
+    }
+    .nav-headers-wrapper > div > div {
+      padding-bottom: 5px;
+    }
+    /* -------- END Nav bar styles --------- */
+
+    main {
+      margin: 2rem;
+      position: relative;
+      height: calc(100vh - 150px);
+      overflow: scroll;
+      scroll-behavior: smooth;
+    }
+
+    /* -------- scroll view style --------- */
+    main::-webkit-scrollbar {
+      width: 1px;
+      display: none;              /* width of the entire scrollbar */
+    }
+    main::-webkit-scrollbar-track {
+      background: transparent;        /* color of the tracking area */
+    }
+    main::-webkit-scrollbar-thumb {
+      background-color: blue;    /* color of the scroll thumb */
+      border-radius: 5px;       /* roundness of the scroll thumb */
+    }
+    /* -------- END- scroll view style --------- */
+
+    /* -------- Side bar slider styles --------- */
+    .side-nav-wrapper {
+      position: fixed;
+      transform: rotate(90deg);
+      top: 40%;
+      left: 4rem;
+    }
+    .side-nav-wrapper article {
+      position: absolute;
+      display: flex;
+      align-items: center;
+    }
+    .header-tab {
+      background: black;
+      transition: width .5s ease-in-out, color 1s ease-in-out;
+      position: relative;
+      display: flex;
+      margin: 0 .5rem;
+      height: 1.6rem;
+      width: .65rem;
+      overflow: hidden;
+      color: black;
+      align-items: center;
+      font-size: 1rem;
+      justify-content: center;
+      letter-spacing: 2px;
+      transform: rotate(-180deg);
+    }
+    .up-arrow, .down-arrow {
+      display: flex;
+    }
+    .up-arrow > span {
+      transform: rotate(-90deg);
+    }
+    .down-arrow > span {
+      transform: rotate(90deg);
+    }
+    .active-header {
+      width: 6.5rem;
+      color: white;
+      padding: 0 .8rem;
+    }
+    @media (max-width: 800px) {
+      .side-nav-wrapper {
+        position: fixed;
+        transform: rotate(0deg);
+        bottom: 4rem;
+        top: auto;
+        left: 30%;
+      }
+      .header-tab {
+        transform: rotate(0deg);
+      }
+    }
+    /* -------- END - Side bar slider styles --------- */
+    section {
+      height: 100%;
+    }
+    section > div {
+      text-align: center;
+      /* animation: zoomIn 2s; */
+    }
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: .5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+  <body>
+    <nav>
+      <div class='logo'>DC</div>
+      <div class='nav-headers-wrapper'>
+        <div class='nav-header-transition-wrapper'>
+          <div>Home</div>
+          <div>Experience</div>
+          <div>Projects</div>
+          <div>About Me</div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class='side-nav-wrapper'>
+        <article>
+          <div class='up-arrow'><span>&#8679;</span></div>
+          <div aria-label='home-page-section' class='header-tab active-header'><span>Home</span></div>
+          <div aria-label='exp-timeline-section' class='header-tab'><span>Experience</span></div>
+          <div aria-label='projects-section' class='header-tab'><span>Projects</span></div>
+          <div aria-label='about-me-section' class='header-tab'><span>About Me</span></div>
+          <div class='down-arrow'><span>&#8679;</span></div>
+        </article>
+      </div>
+      <section id='home-page-section'>
+        <div>Home Page</div>
+      </section>
+      <section id='exp-timeline-section'>
+        <div>Experience Timeline</div>
+      </section>
+      <section id='projects-section'>
+        <div>Projects</div>
+      </section>
+      <section id='about-me-section'>
+        <div>About Me</div>
+      </section>
+    </main>
+  </body>
+  <script>
+    const topArrow = document.getElementsByClassName('up-arrow')[0]
+    const downArrow = document.getElementsByClassName('down-arrow')[0]
+    const headerTabs = document.getElementsByClassName('header-tab')
+    let triggeredViaSideNav = false
+    let navTabScrollValue = 0
+    window.activeIdx = 0
+
+    topArrow.onclick = () => {
+      triggeredViaSideNav = true
+      scrollingVerticalTabs(-1)
+    }
+    downArrow.onclick = () => {
+      triggeredViaSideNav = true
+      scrollingVerticalTabs(1)
+    }
+
+    scrollingVerticalTabs = (motion) => {
+      let activeIdx = 0
+      let oldActiveEle
+      Array.from(headerTabs).find((header, index) => {
+        if (header.className.includes('active-header')) {
+          activeIdx = index
+          oldActiveEle = header
+        }
+      })
+
+      if (motion === 1) {
+        // down arrow click
+        if (activeIdx === (headerTabs.length - 1)) {
+          activeIdx = 0
+          navTabScrollValue = 0
+        } else {
+          ++activeIdx
+          navTabScrollValue += 28
+        }
+      } else {
+        // top arrow click
+        if (activeIdx === 0) {
+          activeIdx = (headerTabs.length - 1)
+          navTabScrollValue = 84
+        } else {
+          --activeIdx
+          navTabScrollValue -= 28
+        }
+      }
+
+      window.activeIdx = activeIdx
+      oldActiveEle.className = 'header-tab' // reset-active-header
+      updateNavHeader(navTabScrollValue)
+      scrollToTabSection(activeIdx)
+    }
+
+    updateNavHeader = (navTabScrollValue) => {
+      const ele = document.getElementsByClassName('nav-header-transition-wrapper')[0]
+      ele.style.transform = `translateY(-${navTabScrollValue}px)`
+      ele.style.transition = `all 0.5s ease-in-out 0s`
+    }
+
+    scrollToTabSection = (activeIdx) => {
+      headerTabs[activeIdx].className += ' active-header'
+      const activeSection = document.getElementById(headerTabs[activeIdx].ariaLabel)
+      activeSection && activeSection.scrollIntoView()
+
+      // to avoid window scroll getting triggered
+      setTimeout(() => {
+        triggeredViaSideNav = false
+      }, 2000)
+    }
+
+    const MAIN_SECTION = document.getElementsByTagName('main')[0]
+    const MAIN_SECTION_HEIGHT = MAIN_SECTION.clientHeight
+    let scrollPos = 0
+    MAIN_SECTION.onscroll = (event) => {
+      !triggeredViaSideNav && updateHeaderViaSectionScroll(event)
+    }
+
+    updateHeaderViaSectionScroll = (event) => {
+      let sectionList = Array.from(MAIN_SECTION.getElementsByTagName('section'))
+      let activeSectionId = headerTabs[window.activeIdx].ariaLabel
+      sectionList.map((section, indx) => {
+        let position = section.getBoundingClientRect()
+      	if(position.top > 0 && position.top < MAIN_SECTION_HEIGHT && position.bottom >= 0) {
+          if (activeSectionId !== section.id) {
+            section.children[0].style.animation = 'zoomIn 2s'
+            console.log('section ', section.children[0].innerHTML)
+            window.activeIdx = indx
+            let dir = getScrolldirection(event)
+            scrollingVerticalTabs(dir)
+          }
+      	} else {
+          section.children[0].style.animation = ''
+        }
+      })
+    }
+
+    getScrolldirection = (evt) => {
+      let dir = 0
+      if ((evt.srcElement.children[0].getBoundingClientRect()).top > scrollPos) {
+        dir = 1
+      	console.log('UP')
+      }
+      else {
+        dir = -1
+      	console.log('DOWN')
+      }
+      scrollPos = (evt.srcElement.children[0].getBoundingClientRect()).top
+      return dir
+    }
+  </script>
+  <script>
+    let st = document.scripts[0]
+    st.onload = () => {
+      console.log('my script laoded')
+    }
+  </script>
+</html>
