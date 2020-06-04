@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Profile layout</title>
+  </head>
+  <style>
+    * {
+      border: .5px solid red;
+    }
+    body {
+      margin: 0;
+      height: 100vh;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .body-layout {
+      padding: 2rem 5rem;
+      transition: padding .5s ease-in-out;
+    }
+    @media (min-width: 600px) and (max-width: 900px) {
+      .body-layout {
+        padding: 1.5rem 3.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .body-layout {
+        padding: 1rem 2rem;
+      }
+    }
+    main {
+      height: 100%;
+      overflow: scroll;
+      position: relative;
+    }
+
+    main aside {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      transition: left .5s ease-in-out;
+    }
+    @media (max-width: 900px) {
+      main aside {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        top: auto;
+      }
+    }
+    article {
+      height: 100%;
+      overflow: scroll;
+    }
+    section {
+      padding: 5rem 0;
+      height: 100vh;
+    }
+
+    #timeline-section {
+      position: relative;
+    }
+
+    #timeline-section div {
+      opacity: 0;
+      height: 250px;
+      width: 250px;
+      border: 2px botted;
+      border-radius: 50%;
+      position: fixed;
+      right: -125px;
+      top: 50%;
+      transform: translateY(-50%) scale(.5);
+      display: flex;
+      align-items: center;
+      transition: all .5s ease-in-out;
+    }
+    .display-date-container {
+      opacity: 1 !important;
+      transform: translateY(-50%) scale(1) !important;
+    }
+  </style>
+  <body>
+    <header class='body-layout'>
+      Nav bar
+    </header>
+    <main class='body-layout'>
+      <aside>
+        <nav>
+          Nav links
+        </nav>
+      </aside>
+      <article>
+        <section>
+          Section 1
+        </section>
+        <section id='timeline-section'>
+          Section 2
+          <div class='date-container'>
+            <!-- apply `display-date-container` dynamically via scroll to show animation -->
+            Date slider
+          </div>
+        </section>
+        <section>
+          Section 2
+        </section>
+        <section>
+          Section 2
+        </section>
+        <section>
+          Section 2
+        </section>
+      </article>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
