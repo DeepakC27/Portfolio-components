@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <title>Profile layout</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="common.css">
+  <link rel="stylesheet" type="text/css" href="color.css">
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="projects.css">
+  <body>
+    <header class='body-layout'>
+      <div class='header-logo'>DC</div>
+      <div class='header-list-wrapper'>
+        <div class='header-items'>
+          <div>Home</div>
+          <div>Timeline</div>
+          <div>Projects</div>
+          <div>About Me</div>
+        </div>
+      </div>
+    </header>
+    <main class='body-layout'>
+      <aside>
+        <nav>
+          <div class='nav-up-arrow'><span>&#8679;</span></div>
+          <div aria-label='home-page-section' class='nav-item nav-item--active bg_black'><span>Home</span></div>
+          <div aria-label='timeline-section' class='nav-item bg_black'><span>Timeline</span></div>
+          <div aria-label='projects-section' class='nav-item bg_black'><span>Projects</span></div>
+          <div aria-label='about-me-section' class='nav-item bg_black'><span>About Me</span></div>
+          <div class='nav-down-arrow'><span>&#8679;</span></div>
+        </nav>
+      </aside>
+      <article id='root'>
+        <section id='home-page-section'>
+          <div class='home-intro-section'>
+            <div class='into-headings-wrapper section-heading bg_white'>
+              <div id='home-text-1'>Hi there,</div>
+              <div id='home-text-2' class='bg_white'>I'm <span class='fg_green'>Deepak Chaudhari</span></div>
+              <div id='home-text-3'>I'm a <span class='fg_green'>front-end</span> developer</div>
+            </div>
+          </div>
+        </section>
+        <style>
+          section {
+            padding: 5rem;
+          }
+          .section-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+          }
+          .home-intro-section {
+            position: relative;
+            margin-top: 2rem;
+          }
+          .into-headings-wrapper {
+            height: 3.2rem;
+            /* overflow: hidden; */
+            border-bottom-width: 5px;
+            transition: all .3s ease-out;
+            position: relative;
+          }
+          .into-headings-wrapper div {
+            position: absolute;
+            animation-name: textAppearing;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            transition: all 1s ease-in-out;
+          }
+          #home-text-2 {
+            opacity: 0;
+            animation-delay: 2s;
+            z-index: 2;
+          }
+          #home-text-3 {
+            opacity: 0;
+            animation-delay: 3s;
+            z-index: 1;
+          }
+          @keyframes textAppearing {
+            0% {
+              opacity: 0;
+            }
+            50% {
+              opacity: 0.5;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          @media (max-width: 600px) {
+            section {
+              padding: 1rem 0;
+            }
+            .section-heading {
+              font-size: 1.5rem;
+            }
+            .into-headings-wrapper {
+              height: 1.8rem;
+            }
+          }
+          @media (min-width: 600px) and (max-width: 900px) {
+            section {
+              padding: 3rem;
+            }
+            .section-heading {
+              font-size: 2rem;
+            }
+            .into-headings-wrapper {
+              height: 2.5rem;
+            }
+          }
+        </style>
+        <section id='timeline-section'>
+          Timeline
+        </section>
+        <section id='projects-section'>
+          <div class="project-container">
+            <div class="project">
+              <div class="project-content">
+                <h4 class="project-title">Heading</h4>
+                <div class="project-details">
+                  <p>Project descp</p>
+                  <ul>
+                    <li>Links</li>
+                    <li>Links</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project-img">
+                <img src="https://cdn.vox-cdn.com/thumbor/w-IFN0FWpN4BGfhZaV9EYqs4nLo=/51x0:977x617/1200x800/" alt="" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id='about-me-section'>
+          About Me
+        </section>
+        <footer>
+          Footer
+        </footer>
+      </article>
+    </main>
+  </body>
+  <script type='text/javascript' src='navigation.js'></script>
+  <script>
+    const heading_text_wrapper = document.getElementsByClassName('into-headings-wrapper')[0]
+    const heading_text_list = Array.from(heading_text_wrapper.children)
+    window.onload = () => {
+      renderHeadings()
+    }
+
+    renderHeadings = (isResized = false) => {
+      let HEADING_MAX_WIDTH = 477
+      if (window.innerWidth < 900 && window.innerWidth > 600) {
+        HEADING_MAX_WIDTH = 382
+      } else if (window.innerWidth < 600) {
+        HEADING_MAX_WIDTH = 287
+      }
+      heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
+      heading_text_wrapper.style.borderBottomColor = 'red'
+      heading_text_wrapper.style.borderBottomStyle = 'solid'
+
+      heading_text_list.map(heading => {
+        heading.style.width = `${HEADING_MAX_WIDTH}px`
+      })
+      // 1st text render
+      const FIRST_TIMER = isResized ? 0 : 1000
+      const SECOND_TIMER = isResized ? 0 : 2000
+      const THIRD_TIMER = isResized ? 0 : 3000
+      setTimeout(() => {
+        let ele = heading_text_list[0]
+        let value = 3.5
+        if (window.innerWidth < 900 && window.innerWidth > 600) {
+          value = 2.8
+        } else if (window.innerWidth < 600) {
+          value = 2
+        }
+        ele.style.transform = `translateY(-${value}rem)`
+      }, FIRST_TIMER)
+
+      // 2nd text render
+      setTimeout(() => {
+        let ele = heading_text_list[1]
+        ele.style.opacity = '1'
+      }, SECOND_TIMER)
+
+      // 3rd text render
+      setTimeout(() => {
+        let ele = heading_text_list[2]
+        let value = 4.2
+        if (window.innerWidth < 900 && window.innerWidth > 600) {
+          value = 3.5
+        } else if (window.innerWidth < 600) {
+          value = 2.5
+        }
+        ele.style.transform = `translateY(${value}rem)`
+        ele.style.opacity = '1'
+      }, THIRD_TIMER)
+    }
+
+    window.onresize = _.debounce(() => renderHeadings(true), 500, { trailing: true })
+  </script>
+</html>

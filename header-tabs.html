@@ -171,72 +171,74 @@
     </main>
   </body>
   <script>
-    const topArrow = document.getElementsByClassName('up-arrow')[0]
-    const downArrow = document.getElementsByClassName('down-arrow')[0]
-    const headerTabs = document.getElementsByClassName('header-tab')
-    let triggeredViaSideNav = false
-    let navTabScrollValue = 0
+    const NAV_TOP_ARROW = document.getElementsByClassName('up-arrow')[0]
+    const NAV_DOWN_ARROW = document.getElementsByClassName('down-arrow')[0]
+    const NAV_ITEMS = document.getElementsByClassName('header-tab')
+    let scroll_Via_trigger = false
+    let header_Scroll_Value = 0
     window.activeIdx = 0
 
-    topArrow.onclick = () => {
-      triggeredViaSideNav = true
+    NAV_TOP_ARROW.onclick = () => {
+      scroll_Via_trigger = true
       scrollingVerticalTabs(-1)
     }
-    downArrow.onclick = () => {
-      triggeredViaSideNav = true
+    NAV_DOWN_ARROW.onclick = () => {
+      scroll_Via_trigger = true
       scrollingVerticalTabs(1)
     }
 
-    scrollingVerticalTabs = (motion) => {
+    scrollingVerticalTabs = (direction) => {
       let activeIdx = 0
       let oldActiveEle
-      Array.from(headerTabs).find((header, index) => {
+      Array.from(NAV_ITEMS).find((header, index) => {
         if (header.className.includes('active-header')) {
           activeIdx = index
           oldActiveEle = header
         }
       })
 
-      if (motion === 1) {
+      if (direction === 1) {
         // down arrow click
-        if (activeIdx === (headerTabs.length - 1)) {
+        if (activeIdx === (NAV_ITEMS.length - 1)) {
+          // reset to top val
           activeIdx = 0
-          navTabScrollValue = 0
+          // header_Scroll_Value = 0
         } else {
           ++activeIdx
-          navTabScrollValue += 28
+          // header_Scroll_Value += 28
         }
       } else {
         // top arrow click
         if (activeIdx === 0) {
-          activeIdx = (headerTabs.length - 1)
-          navTabScrollValue = 84
+          // reset to bottom val
+          activeIdx = (NAV_ITEMS.length - 1)
+          // header_Scroll_Value = 84
         } else {
           --activeIdx
-          navTabScrollValue -= 28
+          // header_Scroll_Value -= 28
         }
       }
 
       window.activeIdx = activeIdx
       oldActiveEle.className = 'header-tab' // reset-active-header
-      updateNavHeader(navTabScrollValue)
+      // updateNavHeader(header_Scroll_Value)
       scrollToTabSection(activeIdx)
     }
 
-    updateNavHeader = (navTabScrollValue) => {
+    updateNavHeader = (header_Scroll_Value) => {
       const ele = document.getElementsByClassName('nav-header-transition-wrapper')[0]
-      ele.style.transform = `translateY(-${navTabScrollValue}px)`
+      ele.style.transform = `translateY(-${header_Scroll_Value}px)`
       ele.style.transition = `all 0.5s ease-in-out 0s`
     }
 
     scrollToTabSection = (activeIdx) => {
-      headerTabs[activeIdx].className += ' active-header'
-      const activeSection = document.getElementById(headerTabs[activeIdx].ariaLabel)
+      NAV_ITEMS[activeIdx].className += ' active-header'
+      const activeSection = document.getElementById(NAV_ITEMS[activeIdx].ariaLabel)
       activeSection && activeSection.scrollIntoView()
 
       // to avoid window scroll getting triggered
       setTimeout(() => {
-        triggeredViaSideNav = false
+        scroll_Via_trigger = false
       }, 2000)
     }
 
@@ -244,17 +246,17 @@
     const MAIN_SECTION_HEIGHT = MAIN_SECTION.clientHeight
     let scrollPos = 0
     MAIN_SECTION.onscroll = (event) => {
-      !triggeredViaSideNav && updateHeaderViaSectionScroll(event)
+      !scroll_Via_trigger && updateHeaderViaSectionScroll(event)
     }
 
     updateHeaderViaSectionScroll = (event) => {
       let sectionList = Array.from(MAIN_SECTION.getElementsByTagName('section'))
-      let activeSectionId = headerTabs[window.activeIdx].ariaLabel
+      let activeSectionId = NAV_ITEMS[window.activeIdx].ariaLabel
       sectionList.map((section, indx) => {
         let position = section.getBoundingClientRect()
-      	if(position.top > 0 && position.top < MAIN_SECTION_HEIGHT && position.bottom >= 0) {
+      	if(position.top > 0 && position.top < MAIN_SECTION_HEIGHT/1.5 && position.bottom >= 0) {
           if (activeSectionId !== section.id) {
-            section.children[0].style.animation = 'zoomIn 2s'
+            // section.children[0].style.animation = 'zoomIn 2s'
             console.log('section ', section.children[0].innerHTML)
             window.activeIdx = indx
             let dir = getScrolldirection(event)
@@ -278,12 +280,6 @@
       }
       scrollPos = (evt.srcElement.children[0].getBoundingClientRect()).top
       return dir
-    }
-  </script>
-  <script>
-    let st = document.scripts[0]
-    st.onload = () => {
-      console.log('my script laoded')
     }
   </script>
 </html>
