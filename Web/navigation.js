@@ -22,6 +22,7 @@ nav_Down_btn.onclick = () => {
 
 scrollingVerticalTabs = (direction) => {
   let oldActiveEle
+  console.log('clicked again: ', direction)
   Array.from(nav_item_divs).map((navItem, index) => {
     if (navItem.className.includes('nav-item--active')) {
       active_NavItem_Index = index
@@ -59,7 +60,8 @@ displayActiveSection = () => {
   // to avoid window scroll getting triggered
   setTimeout(() => {
     scrolled_Via_Btn = false
-  }, 2000)
+  }, 3000)
+
 }
 
 updateNavHeader = () => {

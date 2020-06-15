@@ -66,7 +66,7 @@ span {
     height: 1.8rem;
   }
   .intro-section_content {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 }
 @media (min-width: 600px) and (max-width: 900px) {
@@ -74,6 +74,6 @@ span {
     height: 2.5rem;
   }
   .intro-section_content {
-    margin-top: 3rem;
+    margin-top: 5rem;
   }
 }
