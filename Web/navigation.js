@@ -69,7 +69,6 @@ updateNavHeader = () => {
 }
 
 // Need to be optimized
-/*
 root_container.addEventListener('scroll', _.throttle((event) => {
   !scrolled_Via_Btn && updateHeaderViaScroll(event)
 }), 1000, { trailing: true })
@@ -94,4 +93,3 @@ getScrolldirection = (evt) => {
   scroll_position_value = (evt.srcElement.children[0].getBoundingClientRect()).top
   return dir
 }
-*/

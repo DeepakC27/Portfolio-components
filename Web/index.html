@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <title>Profile layout</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="common.css">
+  <link rel="stylesheet" type="text/css" href="color.css">
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="home.css">
+  <link rel="stylesheet" type="text/css" href="projects.css">
+  <body>
+    <header class='body-layout'>
+      <div class='header-logo'>DC</div>
+      <div class='header-list-wrapper'>
+        <div class='header-items'>
+          <div>Home</div>
+          <div>Timeline</div>
+          <div>Projects</div>
+          <div>About Me</div>
+        </div>
+      </div>
+    </header>
+    <main class='body-layout'>
+      <aside>
+        <nav>
+          <div class='nav-up-arrow'><span>&#8679;</span></div>
+          <div aria-label='home-page-section' class='nav-item nav-item--active bg_black'><span>Home</span></div>
+          <div aria-label='timeline-section' class='nav-item bg_black'><span>Timeline</span></div>
+          <div aria-label='projects-section' class='nav-item bg_black'><span>Projects</span></div>
+          <div aria-label='about-me-section' class='nav-item bg_black'><span>About Me</span></div>
+          <div class='nav-down-arrow'><span>&#8679;</span></div>
+        </nav>
+      </aside>
+      <article id='root'>
+        <section id='home-page-section'>
+          <div class='home-intro-section'>
+            <div class='into-headings-wrapper section-heading bg_white'>
+              <div id='home-text-1'>Hi there,</div>
+              <div id='home-text-2' class='bg_white'>I'm <span class='fg_green'>Deepak Chaudhari</span></div>
+              <div id='home-text-3'>I'm a <span class='fg_green'>front-end</span> developer</div>
+            </div>
+          </div>
+          <p class="intro-section_content">I'm a software engineer based in Mumbai, who enjoys building things that live on the internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user interfaces with efficiency.<br><br>Shortly after graduating from VJTI, I joined the engineering team at Servify where I work on a wide variety of interesting and meaningful projects on a daily basis.</p>
+          <!-- <span id='txt-width'>
+            <b>My text over here....</b>
+          </span> -->
+        </section>
+        <section id='timeline-section'>
+          Timeline
+        </section>
+        <section id='projects-section'>
+          <div class="project-container">
+            <div class="project">
+              <div class="project-content">
+                <h4 class="project-title">Heading</h4>
+                <div class="project-details">
+                  <p>Project descp</p>
+                  <ul>
+                    <li>Links</li>
+                    <li>Links</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project-img">
+                <img src='https://i.picsum.photos/id/7/560/440.jpg' />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id='about-me-section'>
+          About Me
+        </section>
+        <footer>
+          Footer
+        </footer>
+      </article>
+    </main>
+  </body>
+  <script type='text/javascript' src='navigation.js'></script>
+  <script type='text/javascript' src='home.js'></script>
+  <!-- <script>
+    let ele = document.getElementById('txt-width')
+    setTimeout(() => {
+      ele.className = 'isLoading'
+    }, 3000)
+  </script> -->
+</html>

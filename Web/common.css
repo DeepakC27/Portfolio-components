@@ -1,6 +1,6 @@
-/* * {
-  border: .5px solid red;
-} */
+* {
+  /* border: .5px solid red; */
+}
 body {
   margin: 0;
   height: 100vh;
@@ -8,6 +8,7 @@ body {
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
 }
 
 .body-layout {
@@ -26,6 +27,7 @@ body {
 }
 main {
   height: 100%;
+  overflow: scroll;
   position: relative;
 }
 
@@ -38,7 +40,39 @@ article {
 }
 section {
   height: 100%;
+  padding: 5rem;
 }
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 1rem 0;
+  }
+  .section-heading {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  section {
+    padding: 3rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+}
+
 footer {
-  padding: 5rem 0;
+  padding: 5rem;
+}
+
+main::-webkit-scrollbar, article::-webkit-scrollbar {
+  width: 1px;
+  display: none;
+}
+main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
+  background: transparent;
 }

@@ -16,11 +16,9 @@ img {
 }
 
 .project-container {
-  margin: 50px auto;
 }
 
 .project {
-  margin: 30px;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
@@ -73,6 +71,7 @@ img {
   }
   img {
     width: 100%;
+    opacity: .25;
   }
 }
 @media screen and (max-width: 768px) {

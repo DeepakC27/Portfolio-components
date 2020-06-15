@@ -1,0 +1,69 @@
+.home-intro-section {
+  position: relative;
+  margin-top: 2rem;
+}
+.into-headings-wrapper {
+  height: 3.2rem;
+  /* overflow: hidden; */
+  border-bottom-width: 5px;
+  transition: all .3s ease-out;
+  position: relative;
+}
+.into-headings-wrapper div {
+  position: absolute;
+  animation-name: textAppearing;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  transition: all 1s ease-in-out;
+}
+/* .isLoading::after {
+  width: 100% !important;
+  transition: width 3s !important;
+}
+span {
+  position: relative;
+}
+#txt-width::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background: #0fb36c;
+  z-index: 3;
+  transition: width .3s -0.1s;
+} */
+#home-text-2 {
+  opacity: 0;
+  animation-delay: 2s;
+  z-index: 2;
+}
+#home-text-3 {
+  opacity: 0;
+  animation-delay: 3s;
+  z-index: 1;
+}
+
+@keyframes textAppearing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .into-headings-wrapper {
+    height: 1.8rem;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .into-headings-wrapper {
+    height: 2.5rem;
+  }
+}
