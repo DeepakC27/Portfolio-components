@@ -57,13 +57,23 @@ span {
   }
 }
 
+.intro-section_content {
+  margin-top: 8rem;
+}
+
 @media (max-width: 600px) {
   .into-headings-wrapper {
     height: 1.8rem;
+  }
+  .intro-section_content {
+    margin-top: 2rem;
   }
 }
 @media (min-width: 600px) and (max-width: 900px) {
   .into-headings-wrapper {
     height: 2.5rem;
+  }
+  .intro-section_content {
+    margin-top: 3rem;
   }
 }
