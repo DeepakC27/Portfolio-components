@@ -23,18 +23,18 @@
         </div>
       </div>
     </header>
-    <main class='body-layout'>
+    <main>
       <aside>
         <nav>
           <div class='nav-up-arrow'><span>&#8679;</span></div>
-          <div aria-label='home-page-section' class='nav-item nav-item--active bg_black'><span>Home</span></div>
-          <div aria-label='timeline-section' class='nav-item bg_black'><span>Timeline</span></div>
-          <div aria-label='projects-section' class='nav-item bg_black'><span>Projects</span></div>
-          <div aria-label='about-me-section' class='nav-item bg_black'><span>About Me</span></div>
+          <div aria-label='home-page-section' class='nav-item nav-item--active'><span>Home</span></div>
+          <div aria-label='timeline-section' class='nav-item'><span>Timeline</span></div>
+          <div aria-label='projects-section' class='nav-item'><span>Projects</span></div>
+          <div aria-label='about-me-section' class='nav-item'><span>About Me</span></div>
           <div class='nav-down-arrow'><span>&#8679;</span></div>
         </nav>
       </aside>
-      <article id='root'>
+      <article id='root' class='body-layout'>
         <section id='home-page-section'>
           <div class='home-intro-section'>
             <div class='into-headings-wrapper section-heading bg_white'>
@@ -51,30 +51,117 @@
           </span> -->
         </section>
         <section id='timeline-section'>
-          Expected UI
-          <img style='width: 90%;' src='./timeline-slider.png' alt='component-img' />
+          <div class='section-heading'>Experience Timeline</div>
+          <div class='container'>
+            <div id='timeline-container'>
+              <div class='timeline-content'>
+                <div class='section-heading'>2010</div>
+                <div class='content-descp'>
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                </div>
+              </div>
+              <div class='timeline-content'>
+                <div class='section-heading'>2015</div>
+                <div class='content-descp'>
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                </div>
+              </div>
+              <div class='timeline-content'>
+                <div class='section-heading'>2020</div>
+                <div class='content-descp'>
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                </div>
+              </div>
+              <div class='timeline-content'>
+                <div class='section-heading'>2025</div>
+                <div class='content-descp'>
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                  Currently building each section components individually
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
+        <style>
+          #timeline-section {
+            height: fit-content;
+            position: relative;
+          }
+          .timeline-content {
+            padding-bottom: 5rem;
+            width: 80%;
+          }
+        </style>
         <section id='projects-section'>
-          <div class="project-container">
+          <div class='section-heading'>Things i have worked on</div>
+          <div class="container">
             <div class="project">
-              <div class="project-content">
-                <h4 class="project-title">Heading</h4>
+              <div class="project__left-view project-content">
+                <h4 class="project-title">Video Conferencing App</h4>
                 <div class="project-details">
-                  <p>Project descp</p>
-                  <ul>
-                    <li>Links</li>
+                  <p>Video conferencing web app using meet.jit.si.</p>
+                  <ul class='project-tech-stack'>
+                    <li>React JS</li>
+                    <li>HTML & SCSS</li>
+                    <li>Bootstrap</li>
+                  </ul>
+                  <ul class='project-links'>
+                    <li>Github</li>
                     <li>Links</li>
                   </ul>
                 </div>
               </div>
-              <div class="project-img">
+              <div class="project__right-view project-img">
+                <img src='./timeline-slider.png' alt='component-img' />
+              </div>
+            </div>
+            <div class="project">
+              <div class="project__right-view project-content">
+                <h4 class="project-title">Webpack Setup</h4>
+                <div class="project-details">
+                  <p>Webpack integration with vanilla JS. Guide to basic setup. Featuring loaders & compilers.</p>
+                  <ul>
+                    <li>Github</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project__left-view project-img">
+                <img src='./timeline-slider.png' alt='component-img' />
+              </div>
+            </div>
+            <div class="project">
+              <div class="project__left-view project-content">
+                <h4 class="project-title">Pac man</h4>
+                <div class="project-details">
+                  <p>Extensive use of JS to create dynamic elements & displaying animated effects.</p>
+                  <ul class='project-tech-stack'>
+                    <li>Vanilla JS</li>
+                    <li>HTML & CSS</li>
+                  </ul>
+                  <ul class='project-links'>
+                    <li>Github</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project__right-view project-img">
                 <img src='./timeline-slider.png' alt='component-img' />
               </div>
             </div>
           </div>
         </section>
         <section id='about-me-section'>
-          About Me
+          <div class='section-heading'>About Me</div>
         </section>
         <footer>
           Footer

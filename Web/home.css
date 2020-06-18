@@ -1,6 +1,6 @@
 .home-intro-section {
   position: relative;
-  margin-top: 2rem;
+  padding-top: 5rem;
 }
 .into-headings-wrapper {
   height: 3.2rem;
@@ -15,6 +15,7 @@
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   transition: all 1s ease-in-out;
+  /* text-transform: uppercase; */
 }
 /* .isLoading::after {
   width: 100% !important;
@@ -63,16 +64,14 @@ span {
 
 @media (max-width: 600px) {
   .into-headings-wrapper {
-    height: 1.8rem;
+    height: 2rem;
+    font-size: 1.8rem;
   }
   .intro-section_content {
     margin-top: 4rem;
   }
 }
 @media (min-width: 600px) and (max-width: 900px) {
-  .into-headings-wrapper {
-    height: 2.5rem;
-  }
   .intro-section_content {
     margin-top: 5rem;
   }

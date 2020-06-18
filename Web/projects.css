@@ -1,12 +1,22 @@
-ul {
+#projects-section {
+  height: fit-content;
+}
+.project ul {
   padding: 0;
-  margin: 0;
+  margin: 1rem 0;
   list-style: none;
   display: flex;
-  margin-top: 20px;
 }
-ul li {
+.project ul li {
   margin-right: 20px;
+}
+
+.project-tech-stack {
+  font-weight: lighter;
+  font-size: .8rem;
+}
+.project-links {
+
 }
 
 .project {
@@ -15,6 +25,7 @@ ul li {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
   align-items: center;
+  margin-bottom: 6rem;
 }
 @media screen and (max-width: 768px) {
   .project {
@@ -22,58 +33,68 @@ ul li {
   }
 }
 
-.project-content {
+.project .project__left-view {
   position: relative;
-  grid-column: 1 / 7;
+  grid-column: 1 / 8;
   grid-row: 1 / -1;
+}
+.project-content {
   z-index: 5;
+  font-size: 1rem;
 }
-@media (max-width: 600px) {
-  .project-content {
-    grid-column: 1 / -1;
-    padding: 40px;
-  }
-}
-.project-content .project-title {
-  font-size: 2rem;
-  margin: 10px 0 30px;
-}
-.project-content .project-details {
-}
-.project-content .project-details p {
-  background-color: #25252545;
-  padding: 20px 25px;
-}
-@media (max-width: 600px) {
-  .project-content .project-details p {
-    padding: 20px 0;
-  }
-}
-
 .project-img {
-  position: relative;
   z-index: 3;
+}
+.project .project__right-view {
+  position: relative;
   border-radius: 2px;
   grid-column: 6 / -1;
   grid-row: 1 / -1;
+  text-align: right;
+}
+.project .project__right-view ul {
+  flex-direction: column;
 }
 
-.project-img img {
+.project .project-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  color: #0fb36c;
+}
+.project .project-details p {
+  background-color: #25252545;
+  padding: 1.2rem 1.5rem;
+  margin: 0;
+}
+.project img {
   width: 100%;
   vertical-align: middle;
   max-height: 350px;
 }
+
 @media (max-width: 600px) {
-  .project-img {
-    grid-column: 1 / -1;
+  .project {
+    margin: 3rem 0;
   }
-  .project-img img {
+  .project-content {
+    grid-column: 1 / -1 !important;
+    padding: 2rem 0;
+    text-align: left !important;
+  }
+  .project-img {
+    grid-column: 1/ -1 !important;
+  }
+  .project img {
     width: 100%;
     opacity: .25;
   }
+  .project .project-details p {
+    padding: 20px 0;
+  }
 }
 @media screen and (max-width: 768px) {
-  .project-img img {
+  .project img {
     object-fit: cover;
     height: 100%;
   }

@@ -6,10 +6,8 @@ window.onload = () => {
 
 renderHeadings = (isResized = false) => {
   let HEADING_MAX_WIDTH = 477
-  if (window.innerWidth < 900 && window.innerWidth > 600) {
-    HEADING_MAX_WIDTH = 382
-  } else if (window.innerWidth < 600) {
-    HEADING_MAX_WIDTH = 287
+  if (window.innerWidth < 600) {
+    HEADING_MAX_WIDTH = 300
   }
   heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
   heading_text_wrapper.style.borderBottomColor = 'red'

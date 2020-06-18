@@ -6,7 +6,7 @@ const root_container = document.getElementById('root')
 
 const NAV_LIST_LENGTH = 4
 const ROOT_CONTAINER_HEIGHT = root_container.clientHeight
-const HEADERS_ITEM_SCROLL_VALUE = 28
+const HEADERS_ITEM_SCROLL_VALUE = 25
 let scroll_position_value = 0
 let scrolled_Via_Btn
 let active_NavItem_Index = 0

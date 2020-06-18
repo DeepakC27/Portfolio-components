@@ -1,4 +1,7 @@
 /* ------------- Header ------------- */
+header {
+  min-height: 60px;
+}
 header .logo {
   width: fit-content;
 }
@@ -12,9 +15,12 @@ header .logo {
   text-align: center;
   border-bottom: 2px solid red;
   overflow: hidden;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .header-list-wrapper > div > div {
   padding-bottom: 5px;
+  color: #0fb36c;
 }
 @media (min-width: 600px) and (max-width: 900px) {
   .header-list-wrapper {
@@ -30,19 +36,14 @@ header .logo {
 /* ------------- Side Bar ------------- */
 main aside {
   position: fixed;
-  left: 4rem;
+  left: 4.5rem;
   top: 35vh;
   transform: rotate(90deg);
   transition: transform .5s ease-in-out;
+  z-index: 100;
 }
 
-@media (min-width: 600px) and (max-width: 900px) {
-  main aside {
-    left: 2.5rem;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   main aside {
     left: 30%;
     transform: rotate(0deg);
@@ -70,12 +71,16 @@ nav .nav-item {
   font-size: 1rem;
   justify-content: center;
   letter-spacing: 2px;
-  color: black;
+  /* color: black; */
+  color: #0fb36c;
+  background: #0fb36c;
   transform: rotate(-180deg);
+  text-transform: uppercase;
 }
 .nav-up-arrow, .nav-down-arrow {
   display: flex;
   cursor: pointer;
+  color: #0fb36c;
 }
 .nav-up-arrow > span {
   transform: rotate(-90deg);
