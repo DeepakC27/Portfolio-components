@@ -57,11 +57,20 @@ displayActiveSection = () => {
   nav_item_divs[activeIdx].className += ' nav-item--active'
   const activeSection = document.getElementById(nav_item_divs[activeIdx].ariaLabel)
   activeSection && activeSection.scrollIntoView()
-  // to avoid window scroll getting triggered
-  setTimeout(() => {
-    scrolled_Via_Btn = false
-  }, 3000)
 
+  // to avoid window scroll getting triggered
+  if (scrolled_Via_Btn) {
+    const root_container_pos = root_container.getBoundingClientRect()
+    window.btnSrollTrigger = setInterval(() => {
+      let activeElePos = activeSection.getBoundingClientRect()
+      console.log('activeElePos', activeElePos)
+      if (activeElePos.top === root_container_pos.top) {
+        scrolled_Via_Btn = false
+        clearInterval(window.btnSrollTrigger)
+        window.btnSrollTrigger = undefined
+      }
+    }, 100)
+  }
 }
 
 updateNavHeader = () => {
@@ -73,6 +82,7 @@ updateNavHeader = () => {
 // Need to be optimized
 root_container.addEventListener('scroll', _.throttle((event) => {
   !scrolled_Via_Btn && updateHeaderViaScroll(event)
+  console.log('non-btn scroll triggered', scrolled_Via_Btn)
 }), 1000, { trailing: true })
 
 updateHeaderViaScroll = (event) => {

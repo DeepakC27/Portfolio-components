@@ -64,10 +64,6 @@ section > .container {
   padding: 6.5rem 0;
 }
 
-footer {
-  padding: 5rem;
-}
-
 main::-webkit-scrollbar, article::-webkit-scrollbar {
   width: 1px;
   display: none;
