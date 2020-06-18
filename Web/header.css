@@ -45,10 +45,17 @@ main aside {
 
 @media (max-width: 900px) {
   main aside {
-    left: 30%;
+    left: 0;
     transform: rotate(0deg);
-    bottom: 3rem;
+    bottom: 5rem;
     top: auto;
+    width: 100%;
+  }
+  nav {
+    justify-content: center;
+    background: white;
+    padding: 2rem 0;
+    width: 100%;
   }
   nav .nav-item {
     transform: rotate(0deg) !important;

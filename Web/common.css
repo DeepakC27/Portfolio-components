@@ -13,6 +13,7 @@ body {
 
 .body-layout {
   padding: 2rem 8rem;
+  padding-bottom: 0 !important;
   transition: padding .5s ease-in-out;
 }
 @media (min-width: 600px) and (max-width: 900px) {
@@ -44,6 +45,9 @@ section {
   height: 100%;
   margin-bottom: 5rem;
 }
+#about-me-section {
+  margin-bottom: 0;
+}
 
 .section-heading {
   font-size: 2.5rem;
@@ -70,4 +74,8 @@ main::-webkit-scrollbar, article::-webkit-scrollbar {
 }
 main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
   background: transparent;
+}
+
+.light_fontWeight {
+  font-weight: lighter;
 }
