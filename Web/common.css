@@ -9,6 +9,9 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
+  font-weight: lighter;
+  line-height: 1.42857143;
+  color: #333;
 }
 
 .body-layout {
@@ -16,16 +19,7 @@ body {
   padding-bottom: 0 !important;
   transition: padding .5s ease-in-out;
 }
-@media (min-width: 600px) and (max-width: 900px) {
-  .body-layout {
-    padding: 1.5rem 3.5rem;
-  }
-}
-@media (max-width: 600px) {
-  .body-layout {
-    padding: 1rem 2rem;
-  }
-}
+
 main {
   height: 100%;
   overflow: scroll;
@@ -38,15 +32,9 @@ article {
   overflow: scroll;
   scroll-behavior: smooth;
   padding-top: 0 !important;
-  /* temp style */
-  /* border: 2px dotted green; */
 }
 section {
-  height: 100%;
-  margin-bottom: 5rem;
-}
-#about-me-section {
-  margin-bottom: 0;
+  height: fit-content;
 }
 
 .section-heading {
@@ -54,16 +42,6 @@ section {
   font-weight: bold;
 }
 
-@media (max-width: 600px) {
-  .section-heading {
-    font-size: 2rem;
-  }
-}
-@media (min-width: 600px) and (max-width: 900px) {
-  section {
-    margin-bottom: 5rem;
-  }
-}
 section > .container {
   padding: 6.5rem 0;
 }
@@ -75,7 +53,45 @@ main::-webkit-scrollbar, article::-webkit-scrollbar {
 main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
   background: transparent;
 }
+@media (min-width: 600px) and (max-width: 900px) {
+  .body-layout {
+    padding: 1.5rem 3.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .body-layout {
+    padding: 1rem 2rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+  section > .container {
+    padding: 4rem 0;
+  }
+}
 
-.light_fontWeight {
-  font-weight: lighter;
+button {
+  width: 250px;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  background: transparent;
+  border: 2px solid #0fb36c;
+  color: #0fb36c;
+  position: relative;
+  cursor: pointer;
+  /* border-radius: 5px; */
+}
+button::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 2px solid #0fb36c;
+  border-left: none;
+  border-top: none;
+  position: absolute;
+  top: 0.5rem;
+  left: .5rem;
+  background: transparent;
+
 }

@@ -1,5 +1,5 @@
 .fg_black {
-  color: black;
+  color: #333;
 }
 .fg_white {
   color: white;
@@ -14,7 +14,7 @@
 
 
 .bg_black {
-  background: black;
+  background: #333;
 }
 .bg_white {
   background: white;

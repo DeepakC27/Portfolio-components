@@ -17,9 +17,10 @@
       <div class='header-list-wrapper'>
         <div class='header-items'>
           <div>Home</div>
-          <div>Timeline</div>
-          <div>Projects</div>
-          <div>About Me</div>
+          <div>About</div>
+          <div>Experience</div>
+          <div>Work</div>
+          <div>Contact</div>
         </div>
       </div>
     </header>
@@ -28,69 +29,99 @@
         <nav>
           <div class='nav-up-arrow'><span>&#8679;</span></div>
           <div aria-label='home-page-section' class='nav-item nav-item--active'><span>Home</span></div>
-          <div aria-label='timeline-section' class='nav-item'><span>Timeline</span></div>
-          <div aria-label='projects-section' class='nav-item'><span>Projects</span></div>
-          <div aria-label='about-me-section' class='nav-item'><span>About Me</span></div>
+          <div aria-label='about-me-section' class='nav-item'><span>About</span></div>
+          <div aria-label='timeline-section' class='nav-item'><span>Experience</span></div>
+          <div aria-label='projects-section' class='nav-item'><span>Work</span></div>
+          <div aria-label='contact-me-section' class='nav-item'><span>Contact</span></div>
           <div class='nav-down-arrow'><span>&#8679;</span></div>
         </nav>
       </aside>
       <article id='root' class='body-layout'>
         <section id='home-page-section'>
-          <div class='home-intro-section'>
-            <div class='into-headings-wrapper section-heading bg_white'>
-              <div id='home-text-1'>Hi there,</div>
-              <div id='home-text-2' class='bg_white'>I'm <span class='fg_green'>Deepak Chaudhari</span></div>
-              <div id='home-text-3'>I'm a <span class='fg_green'>front-end</span> developer</div>
+          <div class='container'>
+            <div class='home-intro-section'>
+              <div class='into-headings-wrapper section-heading bg_white'>
+                <div id='home-text-1'>Hi there,</div>
+                <div id='home-text-2' class='bg_white'>I'm <span class='fg_green'>Deepak Chaudhari</span></div>
+                <div id='home-text-3'>I'm a <span class='fg_green'>Front-end</span> developer</div>
+              </div>
+            </div>
+            <p class="intro-section_content">
+              I'm a software engineer based in Mumbai, B.Tech specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
+            </p>
+            <div class='home-btn'>
+              <button>
+                <span>Get in touch</span>
+              </button>
             </div>
           </div>
-          <p class="intro-section_content">
-            Currently building each section components individually
-          </p>
-          <!-- <span id='txt-width'>
-            <b>My text over here....</b>
-          </span> -->
+        </section>
+        <section id='about-me-section'>
+          <style>
+            #about-me-section .container {
+              display: grid;
+              grid-auto-flow: column;
+            }
+            #about-me-section .container img {
+              height: 20rem;
+            }
+            @media (max-width: 600px) {
+              #about-me-section .container {
+                display: grid;
+                grid-auto-flow: row;
+              }
+            }
+          </style>
+          <div class='section-heading'>About Me</div>
+          <div class='container'>
+            <div>
+              <p>Hello! I'm Deepak, a software engineer based in Mumbai.</p>
+              <p>I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.</p>
+              <p>Shortly after graduating from <a href='http://www.vjti.ac.in/' target='_blank' rel='nofollow noopener noreferrer'>VJTI</a>, I joined the engineering team at <a href='http://www.vjti.ac.in/' target='_blank' rel='nofollow noopener noreferrer'>Servify</a> where I work on a wide variety of interesting and meaningful projects on a daily basis.</p>
+              <p>Here are a few technologies I've been working with recently:</p>
+              <ul class='about__SkillsContainer-sc-1ownso9-3 dbgkCk'>
+                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>JavaScript (ES6+)</li>
+                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>HTML &amp; (S)CSS</li>
+                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>React</li>
+                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>jQuery</li>
+              </ul>
+            </div>
+            <div>
+              <img src='./icons/github.svg' />
+            </div>
+          </div>
         </section>
         <section id='timeline-section'>
           <div class='section-heading'>Experience Timeline</div>
           <div class='container'>
             <div id='timeline-container'>
               <div class='timeline-content'>
-                <div class='section-heading'>2008</div>
-                <div class='content-descp light_fontWeight'>
-                  Got introduced to coding with Visual Basic programming.
-                  Created a basic calculator.
+                <div class='section-heading'>Dec 2015 - Jan 2016</div>
+                <div class='content-descp'>
+                  Intern at <span class='fg_green'><b>VINDOSHOP</b></span>
+                  <ol>
+                    <li>Builing UI components for Windows app</li>
+                    <li>Carrying out assurance test</li>
+                    <li>Building Custom UI components for web</li>
+                  </ol>
                 </div>
               </div>
               <div class='timeline-content'>
-                <div class='section-heading'>2010</div>
-                <div class='content-descp light_fontWeight'>
-                  Started working on JAVA based projects in high school. Created stand alone application allowing user to upload basic house items to sell online.
-                </div>
-              </div>
-              <div class='timeline-content'>
-                <div class='section-heading'>2013-2017</div>
-                <div class='content-descp light_fontWeight'>
-                  Created a simple color detection program using `open CV` library in python.
-                  Was able to detect colors with close range of the webcam.
-                  Started working as intern in VINDOSHOP building pages for windows app & custom UI for web.
-                </div>
-              </div>
-              <div class='timeline-content'>
-                <div class='section-heading'>2017 - PRESENT</div>
-                <div class='content-descp light_fontWeight'>
-                  Got introuced to React.js
+                <div class='section-heading'>Nov 2017 - PRESENT</div>
+                <div class='content-descp'>
+                  Started working at <span class='fg_green'><b>SERVIFY</b></span> as React.js develoepr
+                  <ol>
+                    <li></li>
+                    <li>Carrying out assurance test</li>
+                    <li>Building Custom UI components for web</li>
+                  </ol>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <style>
-          #timeline-section {
-            height: fit-content;
-            position: relative;
-          }
           .timeline-content {
-            /* padding-bottom: 5rem; */
             width: 80%;
             padding: 2rem;
             border: 1px solid #d9d9d900;
@@ -102,13 +133,13 @@
           }
         </style>
         <section id='projects-section'>
-          <div class='section-heading'>Things i have worked on</div>
+          <div class='section-heading'>Things i've build</div>
           <div class="container">
             <div class="project">
               <div class="project__left-view project-content">
                 <h4 class="project-title">Video Conferencing App</h4>
                 <div class="project-details">
-                  <p class='light_fontWeight'>Video conferencing web app using meet.jit.si.</p>
+                  <p>Video conferencing web app using meet.jit.si.</p>
                   <ul class='project-tech-stack'>
                     <li>React JS</li>
                     <li>HTML & SCSS</li>
@@ -124,7 +155,7 @@
               <div class="project__right-view project-content">
                 <h4 class="project-title">Webpack Setup</h4>
                 <div class="project-details">
-                  <p class='light_fontWeight'>Webpack integration with vanilla JS. Guide to basic setup. Featuring loaders & compilers.</p>
+                  <p>Webpack integration with vanilla JS. Guide to basic setup. Featuring loaders & compilers.</p>
                   <ul class='project-links'>
                     <li>
                       <a href='https://github.com/DeepakC27/webpack-setup' target='_blank'>
@@ -142,7 +173,7 @@
               <div class="project__left-view project-content">
                 <h4 class="project-title">Pac man</h4>
                 <div class="project-details">
-                  <p class='light_fontWeight'>Extensive use of JS to create dynamic elements & displaying animated effects.</p>
+                  <p>Extensive use of JS to create dynamic elements & displaying animated effects.</p>
                   <ul class='project-tech-stack'>
                     <li>Vanilla JS</li>
                     <li>HTML & CSS</li>
@@ -162,8 +193,8 @@
             </div>
           </div>
         </section>
-        <section id='about-me-section'>
-          <div class='section-heading'>About Me</div>
+        <section id='contact-me-section'>
+          <div class='section-heading'>Get in touch</div>
         </section>
       </article>
     </main>

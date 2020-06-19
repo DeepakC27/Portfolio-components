@@ -19,7 +19,7 @@ header .logo {
   font-weight: bold;
 }
 .header-list-wrapper > div > div {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   color: #0fb36c;
 }
 @media (min-width: 600px) and (max-width: 900px) {
