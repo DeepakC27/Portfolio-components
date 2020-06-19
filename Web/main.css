@@ -2,8 +2,17 @@
 header {
   min-height: 60px;
 }
-header .logo {
-  width: fit-content;
+header .header-logo  div:nth-child(2) {
+  height: 30px;
+  letter-spacing: 3px;
+  font-weight: bolder;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+header .header-logo .logo-arrow-icons {
+  height: 2px;
+  width: 35px;
+  background: black;
 }
 .header-list-wrapper {
   position: absolute;
@@ -11,15 +20,17 @@ header .logo {
   top: 0;
   margin: 2rem 5rem;
   width: 150px;
-  height: 30px;
+  height: 35px;
   text-align: center;
-  border-bottom: 2px solid red;
+  border: 2px solid red;
+  border-left: none;
+  border-right: none;
   overflow: hidden;
   text-transform: uppercase;
   font-weight: bold;
 }
 .header-list-wrapper > div > div {
-  padding-bottom: 10px;
+  padding: 5px 0;
   color: #0fb36c;
 }
 @media (min-width: 600px) and (max-width: 900px) {
@@ -107,7 +118,7 @@ nav .nav-item {
 /* ------------ Intro section ------------ */
 .home-intro-section {
   position: relative;
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 .into-headings-wrapper {
   height: 3.6rem;
@@ -225,6 +236,9 @@ nav .nav-item {
 }
 .timeline-content .content-descp {
   margin-top: 1rem;
+}
+.timeline-content .content-descp ol li {
+  padding-bottom: .5rem;
 }
 /* ------------ END - Experience section ------------ */
 

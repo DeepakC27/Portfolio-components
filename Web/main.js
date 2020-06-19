@@ -165,7 +165,9 @@ const getInTouch_btn = document.getElementById('getIn-touch-btn')
 getInTouch_btn.onclick = () => {
   console.log('clicked')
   const contactme_section = document.getElementById('contact-me-section')
-  nav_item_divs[0].className = 'nav-item'
+  Array.from(nav_item_divs).map(item => {
+    item.className = 'nav-item'
+  })
   active_NavItem_Index = 4
   contactme_section.scrollIntoView()
   scrolled_Via_Btn = true
