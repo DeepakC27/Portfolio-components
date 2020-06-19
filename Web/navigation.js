@@ -6,7 +6,7 @@ const root_container = document.getElementById('root')
 
 const NAV_LIST_LENGTH = 4
 const ROOT_CONTAINER_HEIGHT = root_container.clientHeight
-const HEADERS_ITEM_SCROLL_VALUE = 25
+const HEADERS_ITEM_SCROLL_VALUE = 35
 let scroll_position_value = 0
 let scrolled_Via_Btn
 let active_NavItem_Index = 0
@@ -22,7 +22,6 @@ nav_Down_btn.onclick = () => {
 
 scrollingVerticalTabs = (direction) => {
   let oldActiveEle
-  console.log('clicked again: ', direction)
   Array.from(nav_item_divs).map((navItem, index) => {
     if (navItem.className.includes('nav-item--active')) {
       active_NavItem_Index = index
@@ -63,7 +62,6 @@ displayActiveSection = () => {
     const root_container_pos = root_container.getBoundingClientRect()
     window.btnSrollTrigger = setInterval(() => {
       let activeElePos = activeSection.getBoundingClientRect()
-      console.log('activeElePos', activeElePos)
       if (activeElePos.top === root_container_pos.top) {
         scrolled_Via_Btn = false
         clearInterval(window.btnSrollTrigger)
@@ -79,10 +77,8 @@ updateNavHeader = () => {
   ele.style.transition = `all 0.5s ease-in-out 0s`
 }
 
-// Need to be optimized
 root_container.addEventListener('scroll', _.throttle((event) => {
   !scrolled_Via_Btn && updateHeaderViaScroll(event)
-  console.log('non-btn scroll triggered', scrolled_Via_Btn)
 }), 1000, { trailing: true })
 
 updateHeaderViaScroll = (event) => {

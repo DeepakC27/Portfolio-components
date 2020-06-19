@@ -5,15 +5,15 @@ window.onload = () => {
 }
 
 renderHeadings = (isResized = false) => {
-  let HEADING_MAX_WIDTH = 477
+  let HEADING_MAX_WIDTH = 500
   if (window.innerWidth < 600) {
-    HEADING_MAX_WIDTH = 300
+    HEADING_MAX_WIDTH = 310
   }
   heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
   heading_text_wrapper.style.borderBottomColor = 'red'
   heading_text_wrapper.style.borderBottomStyle = 'solid'
 
-  heading_text_list.map(heading => {
+  heading_text_list.map((heading, idx) => {
     heading.style.width = `${HEADING_MAX_WIDTH}px`
   })
   // 1st text render
@@ -23,9 +23,7 @@ renderHeadings = (isResized = false) => {
   setTimeout(() => {
     let ele = heading_text_list[0]
     let value = 3.5
-    if (window.innerWidth < 900 && window.innerWidth > 600) {
-      value = 2.8
-    } else if (window.innerWidth < 600) {
+    if (window.innerWidth < 600) {
       value = 2
     }
     ele.style.transform = `translateY(-${value}rem)`
@@ -41,12 +39,11 @@ renderHeadings = (isResized = false) => {
   setTimeout(() => {
     let ele = heading_text_list[2]
     let value = 4.2
-    if (window.innerWidth < 900 && window.innerWidth > 600) {
-      value = 3.5
-    } else if (window.innerWidth < 600) {
+    if (window.innerWidth < 600) {
       value = 2.5
     }
     ele.style.transform = `translateY(${value}rem)`
+    ele.style.width = `${HEADING_MAX_WIDTH}px`
     ele.style.opacity = '1'
   }, THIRD_TIMER)
 }
