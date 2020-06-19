@@ -1,0 +1,345 @@
+/* ------------ Header ------------ */
+header {
+  min-height: 60px;
+}
+header .logo {
+  width: fit-content;
+}
+.header-list-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 2rem 5rem;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  border-bottom: 2px solid red;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.header-list-wrapper > div > div {
+  padding-bottom: 10px;
+  color: #0fb36c;
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .header-list-wrapper {
+    margin: 1.5rem 3.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .header-list-wrapper {
+    margin: 1rem 2rem;
+  }
+}
+/* ------------ END - Header ------------ */
+
+
+/* ------------ Side Bar ------------ */
+main aside {
+  position: fixed;
+  left: 4.5rem;
+  top: 35vh;
+  transform: rotate(90deg);
+  z-index: 100;
+}
+
+@media (max-width: 900px) {
+  main aside {
+    left: 0;
+    transform: rotate(0deg);
+    bottom: 5rem;
+    top: auto;
+    width: 100%;
+  }
+  nav {
+    justify-content: center;
+    background: white;
+    padding: 2rem 0;
+    width: 100%;
+  }
+  nav .nav-item {
+    transform: rotate(0deg) !important;
+  }
+}
+nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+nav .nav-item {
+  transition: width .5s ease-in-out, color 1s ease-in-out;
+  position: relative;
+  display: flex;
+  margin: 0 .5rem;
+  height: 1.6rem;
+  width: .65rem;
+  overflow: hidden;
+  align-items: center;
+  font-size: 1rem;
+  justify-content: center;
+  letter-spacing: 2px;
+  /* color: black; */
+  color: #0fb36c;
+  background: #0fb36c;
+  transform: rotate(-180deg);
+  text-transform: uppercase;
+}
+.nav-up-arrow, .nav-down-arrow {
+  display: flex;
+  cursor: pointer;
+  color: #0fb36c;
+}
+.nav-up-arrow > span {
+  transform: rotate(-90deg);
+}
+.nav-down-arrow > span {
+  transform: rotate(90deg);
+}
+.nav-item--active {
+  width: 6.5rem !important;
+  padding: 0 .8rem !important;
+  color: white !important;
+}
+/* ------------ END - Side Bar ------------ */
+
+
+/* ------------ Intro section ------------ */
+.home-intro-section {
+  position: relative;
+  padding-top: 5rem;
+}
+.into-headings-wrapper {
+  height: 3.6rem;
+  /* overflow: hidden; */
+  border-bottom-width: 5px;
+  transition: all .3s ease-out;
+  position: relative;
+  z-index: 2;
+}
+.into-headings-wrapper div {
+  position: absolute;
+  animation-name: textAppearing;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  transition: all 1s ease-in-out;
+}
+#home-text-2 {
+  opacity: 0;
+  animation-delay: 2s;
+  z-index: 2;
+}
+#home-text-3 {
+  opacity: 0;
+  animation-delay: 3s;
+  z-index: 1;
+}
+
+@keyframes textAppearing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.intro-section_content {
+  margin-top: 6rem;
+  width: 65%
+}
+.home-btn {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+@media (max-width: 550px) {
+  .into-headings-wrapper {
+    height: 2rem;
+    font-size: 1.8rem;
+    width: 100% !important;
+  }
+  .into-headings-wrapper div {
+    width: 100% !important;
+  }
+  .intro-section_content {
+      margin-top: 5rem;
+    }
+  .intro-section_content {
+    margin-top: 4rem;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .intro-section_content {
+    margin-top: 5rem;
+  }
+}
+/* ------------ END - Intro Section ------------ */
+
+
+/* ------------ About me section ------------ */
+#about-me-section .container {
+  display: grid;
+  grid-auto-flow: column;
+  width: 80%;
+}
+.user-profile-pic {
+  text-align: center;
+}
+.user-profile-pic img {
+  height: 15rem;
+  transition: all .3s ease-in;
+  filter: grayscale(100%);
+  position: relative;
+}
+.user-profile-pic img:hover {
+  filter: grayscale(0);
+}
+#about-me-section .container a {
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  #about-me-section .container {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  #about-me-section .container {
+    display: grid;
+    grid-auto-flow: row;
+    margin-bottom: 5rem;
+  }
+}
+/* ------------ END - About me section ------------ */
+
+/* ------------ Experience section ------------ */
+.timeline-content {
+  width: 80%;
+  padding: 2rem;
+  border: 1px solid #d9d9d900;
+  box-shadow: 0 0 12px 0 #d9d9d9;
+  margin-bottom: 4.5rem;
+}
+.timeline-content .content-descp {
+  margin-top: 1rem;
+}
+/* ------------ END - Experience section ------------ */
+
+/* ------------ Work section ------------ */
+#projects-section {
+  height: fit-content;
+}
+.project ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.project ul li {
+  margin-right: 20px;
+}
+
+.project-tech-stack {
+  font-weight: lighter;
+  font-size: .8rem;
+}
+.project-links img {
+  height: 1.5rem;
+  width: auto;
+}
+
+.project {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  align-items: center;
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .project {
+    align-items: flex-start;
+  }
+}
+
+.project .project__left-view {
+  position: relative;
+  grid-column: 1 / 8;
+  grid-row: 1 / -1;
+}
+.project-content {
+  z-index: 5;
+  font-size: 1rem;
+}
+.project-img {
+  z-index: 3;
+}
+.project .project__right-view {
+  position: relative;
+  border-radius: 2px;
+  grid-column: 6 / -1;
+  grid-row: 1 / -1;
+  text-align: right;
+}
+.project .project__right-view ul {
+  flex-direction: column;
+}
+
+.project .project-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  color: #0fb36c;
+}
+.project .project-details p {
+  background-color: #25252545;
+  padding: 1.2rem 1.5rem;
+  margin: 0;
+}
+.project-img img {
+  width: auto;
+  vertical-align: middle;
+  max-height: 350px;
+  max-width: 500px;
+  display: none;
+}
+
+.projects-btn {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .project-content {
+    grid-column: 1 / -1 !important;
+    padding: 1.5rem 1rem;
+    text-align: left !important;
+    border: 1px solid #d9d9d900;
+    box-shadow: 0 0 12px 0 #d9d9d9;
+  }
+  .project-img {
+    grid-column: 1/ -1 !important;
+  }
+  .project-img img {
+    width: 100%;
+    opacity: .25;
+  }
+  .project .project-details p {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .project-img img {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+/* ------------ END - Work section ------------ */
+
+
+/* ------------ Contact me section ------------ */
+#contact-me-section {
+  height: 95%;
+}
+/* ------------ Contact me section ------------ */

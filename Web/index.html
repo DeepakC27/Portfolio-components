@@ -8,9 +8,7 @@
   </head>
   <link rel="stylesheet" type="text/css" href="common.css">
   <link rel="stylesheet" type="text/css" href="color.css">
-  <link rel="stylesheet" type="text/css" href="header.css">
-  <link rel="stylesheet" type="text/css" href="home.css">
-  <link rel="stylesheet" type="text/css" href="projects.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
   <body>
     <header class='body-layout'>
       <div class='header-logo'>DC</div>
@@ -50,44 +48,33 @@
               I'm a software engineer based in Mumbai, B.Tech specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
             </p>
             <div class='home-btn'>
-              <button>
+              <button id='getIn-touch-btn'>
                 <span>Get in touch</span>
               </button>
             </div>
           </div>
         </section>
         <section id='about-me-section'>
-          <style>
-            #about-me-section .container {
-              display: grid;
-              grid-auto-flow: column;
-            }
-            #about-me-section .container img {
-              height: 20rem;
-            }
-            @media (max-width: 600px) {
-              #about-me-section .container {
-                display: grid;
-                grid-auto-flow: row;
-              }
-            }
-          </style>
           <div class='section-heading'>About Me</div>
           <div class='container'>
-            <div>
+            <div class='about-me-info'>
               <p>Hello! I'm Deepak, a software engineer based in Mumbai.</p>
               <p>I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.</p>
-              <p>Shortly after graduating from <a href='http://www.vjti.ac.in/' target='_blank' rel='nofollow noopener noreferrer'>VJTI</a>, I joined the engineering team at <a href='http://www.vjti.ac.in/' target='_blank' rel='nofollow noopener noreferrer'>Servify</a> where I work on a wide variety of interesting and meaningful projects on a daily basis.</p>
+              <p>Shortly after graduating from <a href='http://www.vjti.ac.in/' target='_blank'>
+                <span class='fg_green'>VJTI</span>
+              </a>, I joined the engineering team at <a href='https://servify.in/' target='_blank'>
+                <span class='fg_green'>Servify</span>
+              </a> where I work on a wide variety of interesting and meaningful projects on a daily basis.</p>
               <p>Here are a few technologies I've been working with recently:</p>
-              <ul class='about__SkillsContainer-sc-1ownso9-3 dbgkCk'>
-                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>JavaScript (ES6+)</li>
-                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>HTML &amp; (S)CSS</li>
-                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>React</li>
-                <li class='about__Skill-sc-1ownso9-4 ibWQpd'>jQuery</li>
+              <ul>
+                <li>JavaScript (ES6+)</li>
+                <li>HTML &amp; (S)CSS</li>
+                <li>React</li>
+                <li>jQuery</li>
               </ul>
             </div>
-            <div>
-              <img src='./icons/github.svg' />
+            <div class='user-profile-pic'>
+              <img src='./images/user-img.png' />
             </div>
           </div>
         </section>
@@ -120,18 +107,6 @@
             </div>
           </div>
         </section>
-        <style>
-          .timeline-content {
-            width: 80%;
-            padding: 2rem;
-            border: 1px solid #d9d9d900;
-            box-shadow: 0 0 12px 0 #d9d9d9;
-            margin-bottom: 4.5rem;
-          }
-          .timeline-content .content-descp {
-            margin-top: 1rem;
-          }
-        </style>
         <section id='projects-section'>
           <div class='section-heading'>Things i've build</div>
           <div class="container">
@@ -191,6 +166,11 @@
                 <img src='./images/pacman.png' alt='component-img' />
               </div>
             </div>
+            <div class='projects-btn'>
+              <button id='viewMore-github-btn'>
+                <span>View more on Github</span>
+              </button>
+            </div>
           </div>
         </section>
         <section id='contact-me-section'>
@@ -199,8 +179,7 @@
       </article>
     </main>
   </body>
-  <script type='text/javascript' src='navigation.js'></script>
-  <script type='text/javascript' src='home.js'></script>
+  <script type='text/javascript' src='main.js'></script>
   <!-- <script>
     let ele = document.getElementById('txt-width')
     setTimeout(() => {

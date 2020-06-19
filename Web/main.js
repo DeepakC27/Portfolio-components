@@ -1,3 +1,58 @@
+/* ------------- Intro Js ------------- */
+const heading_text_wrapper = document.getElementsByClassName('into-headings-wrapper')[0]
+const heading_text_list = Array.from(heading_text_wrapper.children)
+window.onload = () => {
+  renderHeadings()
+}
+
+renderHeadings = (isResized = false) => {
+  let HEADING_MAX_WIDTH = 500
+  if (window.innerWidth < 600) {
+    HEADING_MAX_WIDTH = 310
+  }
+  heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
+  heading_text_wrapper.style.borderBottomColor = 'red'
+  heading_text_wrapper.style.borderBottomStyle = 'solid'
+
+  heading_text_list.map((heading, idx) => {
+    heading.style.width = `${HEADING_MAX_WIDTH}px`
+  })
+  // 1st text render
+  const FIRST_TIMER = isResized ? 0 : 1000
+  const SECOND_TIMER = isResized ? 0 : 2000
+  const THIRD_TIMER = isResized ? 0 : 3000
+  setTimeout(() => {
+    let ele = heading_text_list[0]
+    let value = 3.5
+    if (window.innerWidth < 600) {
+      value = 2
+    }
+    ele.style.transform = `translateY(-${value}rem)`
+  }, FIRST_TIMER)
+
+  // 2nd text render
+  setTimeout(() => {
+    let ele = heading_text_list[1]
+    ele.style.opacity = '1'
+  }, SECOND_TIMER)
+
+  // 3rd text render
+  setTimeout(() => {
+    let ele = heading_text_list[2]
+    let value = 4.2
+    if (window.innerWidth < 600) {
+      value = 2.5
+    }
+    ele.style.transform = `translateY(${value}rem)`
+    ele.style.width = `${HEADING_MAX_WIDTH}px`
+    ele.style.opacity = '1'
+  }, THIRD_TIMER)
+}
+
+window.onresize = _.debounce(() => renderHeadings(true), 500, { trailing: true })
+/* ------------- END - Intro Js ------------- */
+
+/* ------------- Navigation JS ------------- */
 const nav_Top_btn = document.getElementsByClassName('nav-up-arrow')[0]
 const nav_Down_btn = document.getElementsByClassName('nav-down-arrow')[0]
 const nav_item_divs = document.getElementsByClassName('nav-item')
@@ -59,10 +114,10 @@ displayActiveSection = () => {
 
   // to avoid window scroll getting triggered
   if (scrolled_Via_Btn) {
-    const root_container_pos = root_container.getBoundingClientRect()
     window.btnSrollTrigger = setInterval(() => {
-      let activeElePos = activeSection.getBoundingClientRect()
-      if (activeElePos.top === root_container_pos.top) {
+      const root_pos_top = root_container.getBoundingClientRect().top
+      let activeElePos_top = activeSection.getBoundingClientRect().top
+      if (Math.ceil(activeElePos_top) === Math.ceil(root_pos_top)) {
         scrolled_Via_Btn = false
         clearInterval(window.btnSrollTrigger)
         window.btnSrollTrigger = undefined
@@ -100,4 +155,25 @@ getScrolldirection = (evt) => {
   )
   scroll_position_value = (evt.srcElement.children[0].getBoundingClientRect()).top
   return dir
+}
+/* ------------- END - Navigation JS ------------- */
+
+
+/* ------------- Action btns ------------- */
+const getInTouch_btn = document.getElementById('getIn-touch-btn')
+// https://github.com/DeepakC27 viewMore-github-btn
+getInTouch_btn.onclick = () => {
+  console.log('clicked')
+  const contactme_section = document.getElementById('contact-me-section')
+  nav_item_divs[0].className = 'nav-item'
+  active_NavItem_Index = 4
+  contactme_section.scrollIntoView()
+  scrolled_Via_Btn = true
+  displayActiveSection()
+  updateNavHeader()
+}
+
+const gitHub_viewMore_btn = document.getElementById('viewMore-github-btn')
+gitHub_viewMore_btn.onclick = () => {
+  window.open('https://github.com/DeepakC27')
 }
