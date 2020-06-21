@@ -69,11 +69,11 @@ window.onload = () => {
       /* ------------- END - Intro Js ------------- */
 
       /* ------------- Navigation JS ------------- */
-      const nav_Top_btn = document.getElementsByClassName('nav-up-arrow')[0]
-      const nav_Down_btn = document.getElementsByClassName('nav-down-arrow')[0]
-      const nav_item_divs = document.getElementsByClassName('nav-item')
-      const header_items_divs = document.getElementsByClassName('header-items')
+      const nav_Top_btn = document.querySelector('.nav-up-arrow')
+      const nav_Down_btn = document.querySelector('.nav-down-arrow')
+      const nav_item_divs = document.querySelectorAll('.nav-item')
       const root_container = document.getElementById('root')
+      const sectionsList = root_container.querySelectorAll('section')
 
       const NAV_LIST_LENGTH = 4
       const ROOT_CONTAINER_HEIGHT = root_container.clientHeight
@@ -84,22 +84,14 @@ window.onload = () => {
 
       nav_Top_btn.onclick = () => {
         scrolled_Via_Btn = true
-        scrollingVerticalTabs(-1)
+        setActiveSectionIdx(-1)
       }
       nav_Down_btn.onclick = () => {
         scrolled_Via_Btn = true
-        scrollingVerticalTabs(1)
+        setActiveSectionIdx(1)
       }
 
-      scrollingVerticalTabs = (direction) => {
-        let oldActiveEle
-        Array.from(nav_item_divs).map((navItem, index) => {
-          if (navItem.className.includes('nav-item--active')) {
-            active_NavItem_Index = index
-            oldActiveEle = navItem
-          }
-        })
-
+      setActiveSectionIdx = (direction) => {
         if (direction === 1) {
           // down arrow click
           if (active_NavItem_Index === (nav_item_divs.length - 1)) {
@@ -118,30 +110,34 @@ window.onload = () => {
           }
         }
         displayActiveSection()
-        updateNavHeader()
-        oldActiveEle.className = 'nav-item bg_black'
       }
 
       displayActiveSection = () => {
-        const activeIdx = active_NavItem_Index
-        nav_item_divs[activeIdx].className += ' nav-item--active'
-        const activeSection = document.getElementById(nav_item_divs[activeIdx].ariaLabel)
-        activeSection && activeSection.scrollIntoView()
+        updateNavHeader()
+        nav_item_divs.forEach((navItem, index) => {
+          if (active_NavItem_Index === index) {
+            navItem.className += ' nav-item--active'
+            const activeSection = document.getElementById(nav_item_divs[active_NavItem_Index].ariaLabel)
+            activeSection && activeSection.scrollIntoView()
 
-        // to avoid window scroll getting triggered
-        if (scrolled_Via_Btn) {
-          window.btnSrollTrigger = setInterval(() => {
-            const root_pos_top = root_container.getBoundingClientRect().top
-            let activeElePos_top = activeSection.getBoundingClientRect().top
-            let lowVal = Math.floor(activeElePos_top)
-            let highVal = Math.ceil(activeElePos_top)
-            if (lowVal === root_pos_top || highVal === root_pos_top) {
-              scrolled_Via_Btn = false
-              clearInterval(window.btnSrollTrigger)
-              window.btnSrollTrigger = undefined
+            // to be updated with IntersectionObserver
+            if (scrolled_Via_Btn) {
+              window.btnSrollTrigger = setInterval(() => {
+                const root_pos_top = root_container.getBoundingClientRect().top
+                let activeElePos_top = activeSection.getBoundingClientRect().top
+                let lowVal = Math.floor(activeElePos_top)
+                let highVal = Math.ceil(activeElePos_top)
+                if (lowVal === root_pos_top || highVal === root_pos_top) {
+                  scrolled_Via_Btn = false
+                  clearInterval(window.btnSrollTrigger)
+                  window.btnSrollTrigger = undefined
+                }
+              }, 100)
             }
-          }, 100)
-        }
+          } else {
+            navItem.className = 'nav-item bg_black'
+          }
+        })
       }
 
       updateNavHeader = () => {
@@ -150,47 +146,46 @@ window.onload = () => {
         ele.style.transition = `all 0.5s ease-in-out 0s`
       }
 
-      root_container.addEventListener('scroll', _.throttle((event) => {
-        scroll_position_value = (event.srcElement.children[0].getBoundingClientRect()).top
-        !scrolled_Via_Btn && updateHeaderViaScroll(event)
-      }), 1000, { trailing: true })
+      const options = {
+        rootMargin: '-50% 0% -50% 0%'
+      }
 
-      updateHeaderViaScroll = (event) => {
-        let sectionList = Array.from(root_container.getElementsByTagName('section'))
-        sectionList.map((section, indx) => {
-          let position = section.getBoundingClientRect()
-          if(position.top > 0 && position.top < ROOT_CONTAINER_HEIGHT/1.5 && position.bottom >= 0) {
-            if (indx !== active_NavItem_Index) {
-              scrollingVerticalTabs(getScrolldirection(event))
-            }
+      const callback = (entries, observes) => {
+        entries.forEach(entry => {
+          let ele = entry.target
+          if (!entry.isIntersecting) {
+            return
+          } else {
+            sectionsList.forEach((section, idx) => {
+              if (scrolled_Via_Btn) {
+                return
+              }
+              if (section.id === ele.id) {
+                active_NavItem_Index = idx
+                displayActiveSection()
+              }
+            })
           }
         })
       }
+      const root_observer = new IntersectionObserver(callback, options)
+      sectionsList.forEach(section => {
+        root_observer.observe(section)
+      })
 
-      getScrolldirection = (evt) => {
-        let dir = ((evt.srcElement.children[0].getBoundingClientRect()).top > scroll_position_value
-          ? 1
-          : -1
-        )
-        scroll_position_value = (evt.srcElement.children[0].getBoundingClientRect()).top
-        return dir
-      }
+
       /* ------------- END - Navigation JS ------------- */
 
 
       /* ------------- Action btns ------------- */
       const getInTouch_btn = document.getElementById('getIn-touch-btn')
       getInTouch_btn.onclick = () => {
-        console.log('clicked')
-        const contactme_section = document.getElementById('contact-me-section')
         Array.from(nav_item_divs).map(item => {
           item.className = 'nav-item'
         })
         active_NavItem_Index = 4
-        contactme_section.scrollIntoView()
         scrolled_Via_Btn = true
         displayActiveSection()
-        updateNavHeader()
       }
 
       const gitHub_viewMore_btn = document.getElementById('viewMore-github-btn')
