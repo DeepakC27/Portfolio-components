@@ -98,7 +98,7 @@ button::after {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background: #333;
+  background: white;
   z-index: 20;
   overflow: hidden;
 }
@@ -113,9 +113,9 @@ button::after {
 }
 .loader {
   height: 100%;
-  color: white;
+  color: #0fb36c;
   position: relative;
-  font-size: 11px;
+  font-size: 1rem;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -125,6 +125,7 @@ button::after {
 }
 .loader div {
   font-size: 2rem;
+  font-weight: bold;
   transform: translateX(-15px);
 }
 .loader:before,
