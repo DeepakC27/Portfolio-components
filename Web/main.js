@@ -4,6 +4,11 @@ window.onload = () => {
   script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js'
   document.body.appendChild(script)
   script.onload = () => {
+    /* ------- Global Var ------- */
+      const RESUME_LINK = 'https://drive.google.com/file/d/1AkVAGWqSflKR3Rkixk6j_YM5Bc-btEbt/view?usp=sharing'
+      const GITHUB = 'https://github.com/DeepakC27'
+    /* ------- END - Global Var ------- */
+
     // hide loader
     setTimeout(() => {
       const loader = document.getElementsByClassName('loader-wrapper')[0]
@@ -190,10 +195,14 @@ window.onload = () => {
 
       const gitHub_viewMore_btn = document.getElementById('viewMore-github-btn')
       gitHub_viewMore_btn.onclick = () => {
-        window.open('https://github.com/DeepakC27')
+        window.open(GITHUB)
+      }
+
+      const viewResume_btn = document.getElementById('resumeOpt-btn')
+      viewResume_btn.onclick = () => {
+        window.open(RESUME_LINK)
       }
       // mailOpt-btn
-      // resumeOpt-btn
 
     }, 1000)
   }
