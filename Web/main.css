@@ -360,4 +360,21 @@ nav .nav-item {
 #contact-me-section {
   height: 95%;
 }
+.contact-section-btns {
+  display: flex;
+  justify-content: center;
+}
+.contact-section-btns button {
+  margin-right: 5rem;
+}
+@media screen and (max-width: 600px) {
+  .contact-section-btns {
+    flex-direction: column;
+  }
+  .contact-section-btns button {
+    margin-top: 2rem;
+    margin-right: 0;
+    align-self: center;
+  }
+}
 /* ------------ Contact me section ------------ */

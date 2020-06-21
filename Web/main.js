@@ -128,7 +128,9 @@ window.onload = () => {
           window.btnSrollTrigger = setInterval(() => {
             const root_pos_top = root_container.getBoundingClientRect().top
             let activeElePos_top = activeSection.getBoundingClientRect().top
-            if (Math.ceil(activeElePos_tops === Math.ceil(root_pos_top)) {
+            let lowVal = Math.floor(activeElePos_top)
+            let highVal = Math.ceil(activeElePos_top)
+            if (lowVal === root_pos_top || highVal === root_pos_top) {
               scrolled_Via_Btn = false
               clearInterval(window.btnSrollTrigger)
               window.btnSrollTrigger = undefined
