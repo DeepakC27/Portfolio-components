@@ -7,7 +7,7 @@ window.onload = () => {
     // hide loader
     setTimeout(() => {
       const loader = document.getElementsByClassName('loader-wrapper')[0]
-      loader.className = 'loader__disapper'
+      loader.className = 'loader__disappear'
 
       /* ------------- Intro Js ------------- */
       const heading_text_wrapper = document.getElementsByClassName('into-headings-wrapper')[0]
@@ -128,7 +128,7 @@ window.onload = () => {
           window.btnSrollTrigger = setInterval(() => {
             const root_pos_top = root_container.getBoundingClientRect().top
             let activeElePos_top = activeSection.getBoundingClientRect().top
-            if (Math.ceil(activeElePos_top) === Math.ceil(root_pos_top)) {
+            if (Math.ceil(activeElePos_tops === Math.ceil(root_pos_top)) {
               scrolled_Via_Btn = false
               clearInterval(window.btnSrollTrigger)
               window.btnSrollTrigger = undefined
@@ -190,6 +190,9 @@ window.onload = () => {
       gitHub_viewMore_btn.onclick = () => {
         window.open('https://github.com/DeepakC27')
       }
-    }, 100)
+      // mailOpt-btn
+      // resumeOpt-btn
+
+    }, 1000)
   }
 }
