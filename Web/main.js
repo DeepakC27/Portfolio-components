@@ -146,11 +146,11 @@ window.onload = () => {
         ele.style.transition = `all 0.5s ease-in-out 0s`
       }
 
-      const options = {
+      const root_observer_options = {
         rootMargin: '-50% 0% -50% 0%'
       }
 
-      const callback = (entries, observes) => {
+      const root_observer = new IntersectionObserver((entries, root_observer) => {
         entries.forEach(entry => {
           let ele = entry.target
           if (!entry.isIntersecting) {
@@ -167,13 +167,34 @@ window.onload = () => {
             })
           }
         })
-      }
-      const root_observer = new IntersectionObserver(callback, options)
+      }, root_observer_options)
+
       sectionsList.forEach(section => {
         root_observer.observe(section)
       })
 
+      const fadeIn_elements = root_container.querySelectorAll('.fade-in')
+      const slideIn_elements = root_container.querySelectorAll('.slide-in')
+      const displayOnScroll = new IntersectionObserver((entries, displayOnScroll) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return
+          } else {
+            entry.target.classList.add('appear')
+            displayOnScroll.unobserve(entry.target)
+          }
+        })
+      }, {
+        // threshold: .5,
+        rootMargin: '-30% 0% -30% 0%'
+      })
 
+      fadeIn_elements.forEach(ele => {
+        displayOnScroll.observe(ele)
+      })
+      slideIn_elements.forEach(ele => {
+        displayOnScroll.observe(ele)
+      })
       /* ------------- END - Navigation JS ------------- */
 
 
