@@ -1,3 +1,47 @@
+:root {
+
+  /* ----- colors ----- */
+  --green: #0fb36c;
+  --white: white;
+  --black: black;
+  --light-black: #333;
+  --red: red;
+  --light-grey: #25252545;
+  --dark-grey: #dfdcdc2b;
+
+  --primary-color: var(--green);
+  --secondary-color: var(--light-black);
+  --background-color: var(--white);
+  --active-color: var(--red);
+  --project-content-color: var(--light-grey);
+  --loader-color: var(--primary-color);
+  --theme-font-weight: initial;
+  --body-font-weight: lighter;
+  --nav-border: var(--primary-color);
+
+  --sh-fontSize: 2.5rem;
+
+  --shadow-border_color: #d9d9d900;
+  --shadow-color: #d9d9d9;
+
+  --bottom-top_slideIn_val: 30%;
+}
+
+ @media (max-width: 600px) {
+  :root {
+    --bottom-top_slideIn_val: 20%;
+    --sh-fontSize: 2rem;
+  }
+}
+
+.fg_green {
+  color: var(--primary-color);
+  font-weight: var(--theme-font-weight);
+}
+.bg_black {
+  background: var(--secondary-color);
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -6,11 +50,12 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
-  font-weight: lighter;
+  font-weight: var(--body-font-weight);
   line-height: 1.42857143;
-  color: #333;
+  color: var(--secondary-color);
+  background: var(--background-color);
+  overflow-x: hidden;
 }
-
 .body-layout {
   padding: 2rem 8rem;
   padding-bottom: 0 !important;
@@ -36,7 +81,7 @@ section {
 }
 
 .section-heading {
-  font-size: 2.5rem;
+  font-size: var(--sh-fontSize);
   font-weight: bold;
   padding-top: 3rem;
 }
@@ -46,7 +91,8 @@ section > .container {
 }
 
 main::-webkit-scrollbar, article::-webkit-scrollbar {
-  width: 1px;
+  /* width: 5px; */
+  /* background: var(--primary-color); */
   display: none;
 }
 main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
@@ -61,11 +107,8 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
   .body-layout {
     padding: 1rem 2rem;
   }
-  .section-heading {
-    font-size: 2rem;
-  }
   section > .container {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 }
 
@@ -75,17 +118,18 @@ button {
   font-size: 1rem;
   text-align: center;
   background: transparent;
-  border: 2px solid #0fb36c;
-  color: #0fb36c;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
   position: relative;
   cursor: pointer;
   outline: none;
+  font-weight: bold;
 }
 button::after {
   content: "";
   width: 100%;
   height: 100%;
-  border: 2px solid #0fb36c;
+  border: 2px solid var(--primary-color);
   border-left: none;
   border-top: none;
   position: absolute;
@@ -98,29 +142,28 @@ button::after {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background: white;
+  background: var(--background-color);
   z-index: 20;
   overflow: hidden;
 }
 
+/* ------------ loader ------------ */
 .loader,
 .loader:before,
 .loader:after {
-  -webkit-animation: load1 1s infinite ease-in-out;
-  animation: load1 1s infinite ease-in-out;
+  animation: loader-motion 1s infinite ease-in-out;
   width: 1em;
   height: 4em;
 }
 .loader {
   height: 100%;
-  color: #0fb36c;
+  color: var(--loader-color);
   position: relative;
   font-size: 1rem;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
-  -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
 .loader div {
@@ -136,25 +179,12 @@ button::after {
 }
 .loader:before {
   left: -1.5em;
-  -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 .loader:after {
   left: 1.5em;
 }
-@-webkit-keyframes load1 {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-  }
-}
-@keyframes load1 {
+@keyframes loader-motion {
   0%,
   80%,
   100% {
@@ -171,3 +201,23 @@ button::after {
   display: none;
   /* animation: 1s disappear ease-in-out; */
 }
+/* ------------ END- loader ------------ */
+
+/* ------------ Animations ------------ */
+.fade-in {
+  opacity: 0;
+  transition: opacity .8s ease-in;
+}
+.fade-in.appear {
+  opacity: 1;
+}
+.from-bottom {
+  transform: translateY(25%);
+  opacity: .5;
+  transition: transform .5s ease-in;
+}
+.from-bottom.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ------------ END - Animations ------------ */
