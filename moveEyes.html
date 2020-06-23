@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Moving eyes</title>
+</head>
+<style type="text/css">
+  .container {
+    height: 600px;
+    width: 100%;
+    position: relative;
+  }
+  .img-wrapper {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    top: 40%;
+    background-image: url('./Web/images/dark.png');
+    transform: translateY(-50%);
+    height: 300px;
+    width: 300px;
+    background-size: contain;
+  }
+  .left-eye-bounds, .right-eye-bounds {
+    content: '';
+    position: fixed;
+    height: 53px;
+    width: 53px;
+    background: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .left-eye-bounds {
+    left: 95px;
+    top: 61px;
+  }
+  .right-eye-bounds {
+    right: 90px;
+    top: 60px;
+  }
+  .eyeball {
+    height: 20px;
+    width: 20px;
+    background: black;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+</style>
+<body>
+  <div class='container'>
+    <div class='img-wrapper'>
+      <div class='left-eye-bounds'>
+        <div class='eyeball'></div>
+      </div>
+      <div class='right-eye-bounds'>
+        <div class='eyeball'></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const eyeBalls = document.querySelectorAll('.eyeball')
+  const container = document.querySelector('.container')
+  document.onmousemove = (event) => {
+    // debugger
+    const x = event.clientX * 100 / container.clientWidth + '%'
+    const y = event.clientY * 100 / container.clientHeight + '%'
+    console.log('pos X: ', x)
+    eyeBalls.forEach(eyeball => {
+      eyeball.style.left = x
+      eyeball.style.top = y
+      eyeball.style.transform = `translate(-${x}, -${y})`
+    })
+  }
+</script>
+</html>

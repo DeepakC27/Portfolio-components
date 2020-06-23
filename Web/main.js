@@ -199,6 +199,19 @@ window.onload = () => {
 
 
       /* ------------- Action btns ------------- */
+      const eyeBalls = document.querySelectorAll('.eyeball')
+      document.onmousemove = (event) => {
+        const posX = event.clientX * 100 / window.innerWidth + '%'
+        const posY = event.clientY * 100 / window.innerHeight + '%'
+        console.log('posX: ', posX)
+        console.log('posY: ', posY)
+        eyeBalls.forEach(eyeball => {
+          eyeball.style.left = posX
+          eyeball.style.top = posY
+          // eyeball.style.transform = `translate(-${posX}, -${posY})`
+        })
+      }
+
       const getInTouch_btn = document.getElementById('getIn-touch-btn')
       getInTouch_btn.onclick = () => {
         Array.from(nav_item_divs).map(item => {
@@ -229,7 +242,6 @@ window.onload = () => {
           changeTheme_btn.innerText = 'Light Mode'
         }
       }
-      // mailOpt-btn
 
     }, 1000)
   }

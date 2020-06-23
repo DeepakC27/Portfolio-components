@@ -116,6 +116,9 @@ nav .nav-item {
 
 
 /* ------------ Intro section ------------ */
+#home-page-section {
+  position: relative;
+}
 .home-intro-section {
   position: relative;
   padding-top: 3rem;
@@ -145,6 +148,44 @@ nav .nav-item {
   margin-top: 6rem;
   width: 65%
 }
+.landing-page_img {
+  position: absolute;
+  right: 0%;
+  z-index: -1;
+  top: 40%;
+  background-image: url('./images/minion.png');
+  transform: translateY(-50%);
+  height: 350px;
+  width: 350px;
+  background-size: contain;
+}
+.left-eye-bounds, .right-eye-bounds {
+  content: '';
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  background: var(--white);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.left-eye-bounds {
+  left: 112px;
+  top: 72px;
+}
+.right-eye-bounds {
+  right: 107px;
+  top: 71px;
+}
+.eyeball {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  background: var(--black);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
 .home-btn {
   text-align: center;
   margin: 3rem 0;
@@ -153,6 +194,11 @@ nav .nav-item {
 }
 .home-btn button {
   margin-right: 5rem;
+}
+@media screen and (max-width: 700px) {
+  .landing-page_img {
+    display: none;
+  }
 }
 @media screen and (max-width: 600px) {
   .home-btn {
