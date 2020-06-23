@@ -117,7 +117,7 @@ window.onload = () => {
         nav_item_divs.forEach((navItem, index) => {
           if (active_NavItem_Index === index) {
             navItem.className += ' nav-item--active'
-            
+
             // to be updated with IntersectionObserver
             if (scrolled_Via_Btn) {
               const activeSection = document.getElementById(nav_item_divs[active_NavItem_Index].ariaLabel)
@@ -186,7 +186,7 @@ window.onload = () => {
         })
       }, {
         // threshold: .5,
-        rootMargin: '-30% 0% -30% 0%'
+        rootMargin: '-25% 0% -25% 0%'
       })
 
       fadeIn_elements.forEach(ele => {

@@ -16,7 +16,7 @@
   --project-content-color: var(--light-grey);
   --loader-color: var(--primary-color);
   --theme-font-weight: initial;
-  --body-font-weight: lighter;
+  --body-font-weight: 400;
   --nav-border: var(--primary-color);
 
   --sh-fontSize: 2.5rem;
@@ -57,8 +57,9 @@
 body {
   margin: 0;
   height: 100vh;
-  font-size: 18px;
-  font-family: sans-serif;
+  font-size: 1.1rem;
+  /* font-family: sans-serif; */
+  font-family: 'Fira Sans', sans-serif;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
@@ -78,7 +79,6 @@ main {
   height: 100%;
   overflow: scroll;
   position: relative;
-  font-size: 1rem;
 }
 
 article {
@@ -211,22 +211,23 @@ button::after {
 
 .loader__disappear {
   display: none;
-  /* animation: 1s disappear ease-in-out; */
+  opacity: 0;
+  transition: opacity .5s ease-out;
 }
 /* ------------ END- loader ------------ */
 
 /* ------------ Animations ------------ */
 .fade-in {
   opacity: 0;
-  transition: opacity .8s ease-in;
+  transition: opacity .5s ease-in;
 }
 .fade-in.appear {
   opacity: 1;
 }
 .from-bottom {
   transform: translateY(25%);
-  opacity: .5;
-  transition: transform .5s ease-in;
+  opacity: .8;
+  transition: all .5s ease-in;
 }
 .from-bottom.appear {
   opacity: 1;
