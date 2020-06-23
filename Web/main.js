@@ -27,16 +27,16 @@ window.onload = () => {
           HEADING_MAX_WIDTH = 310
         }
         heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
-        heading_text_wrapper.style.borderBottomColor = 'red'
-        heading_text_wrapper.style.borderBottomStyle = 'solid'
+        // heading_text_wrapper.style.borderBottomColor = 'red'
+        // heading_text_wrapper.style.borderBottomStyle = 'solid'
 
         heading_text_list.map((heading, idx) => {
           heading.style.width = `${HEADING_MAX_WIDTH}px`
         })
         // 1st text render
-        const FIRST_TIMER = isResized ? 0 : 1000
-        const SECOND_TIMER = isResized ? 0 : 2000
-        const THIRD_TIMER = isResized ? 0 : 3000
+        const FIRST_TIMER = isResized ? 0 : 500
+        const SECOND_TIMER = isResized ? 0 : 1500
+        const THIRD_TIMER = isResized ? 0 : 2000
         setTimeout(() => {
           let ele = heading_text_list[0]
           let value = 3.5
@@ -196,6 +196,17 @@ window.onload = () => {
       const viewResume_btn = document.getElementById('resumeOpt-btn')
       viewResume_btn.onclick = () => {
         window.open(RESUME_LINK)
+      }
+
+      const changeTheme_btn = document.getElementById('change-theme-btn')
+      changeTheme_btn.onclick = () => {
+        if (document.body.className.includes('dark-mode')) {
+          document.body.classList.remove('dark-mode')
+          changeTheme_btn.innerText = 'Dark Mode'
+        } else {
+          document.body.classList.add('dark-mode')
+          changeTheme_btn.innerText = 'Light Mode'
+        }
       }
       // mailOpt-btn
 

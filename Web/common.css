@@ -33,6 +33,18 @@
     --sh-fontSize: 2rem;
   }
 }
+.dark-mode {
+  --primary-color: var(--green);
+  --secondary-color: var(--white);
+  --background-color: var(--black);
+  --loader-color: var(--white);
+  --project-content-color: var(--dark-grey);
+  --theme-font-weight: bold;
+  --nav-border: var(--secondary-color);
+  --body-font-weight: 500;
+  /* --active-color: white; */
+
+}
 
 .fg_green {
   color: var(--primary-color);
