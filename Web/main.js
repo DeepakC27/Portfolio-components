@@ -117,11 +117,11 @@ window.onload = () => {
         nav_item_divs.forEach((navItem, index) => {
           if (active_NavItem_Index === index) {
             navItem.className += ' nav-item--active'
-            const activeSection = document.getElementById(nav_item_divs[active_NavItem_Index].ariaLabel)
-            activeSection && activeSection.scrollIntoView()
-
+            
             // to be updated with IntersectionObserver
             if (scrolled_Via_Btn) {
+              const activeSection = document.getElementById(nav_item_divs[active_NavItem_Index].ariaLabel)
+              activeSection && activeSection.scrollIntoView()
               window.btnSrollTrigger = setInterval(() => {
                 const root_pos_top = root_container.getBoundingClientRect().top
                 let activeElePos_top = activeSection.getBoundingClientRect().top
