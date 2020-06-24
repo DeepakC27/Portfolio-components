@@ -245,6 +245,7 @@ nav .nav-item {
   display: grid;
   grid-auto-flow: column;
   width: 80%;
+  padding-top: 3rem;
 }
 .user-profile-pic {
   text-align: center;

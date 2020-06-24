@@ -25,6 +25,10 @@
   --shadow-color: #d9d9d9;
 
   --bottom-top_slideIn_val: 30%;
+
+  --button-txt-color: var(--primary-color);
+  --button-bck-color: transparent;
+  --button-border-color: var(--primary-color);
 }
 
  @media (max-width: 600px) {
@@ -34,7 +38,6 @@
   }
 }
 .dark-mode {
-  --primary-color: var(--green);
   --secondary-color: var(--white);
   --background-color: var(--black);
   --loader-color: var(--white);
@@ -42,6 +45,10 @@
   --theme-font-weight: bold;
   --nav-border: var(--secondary-color);
   --body-font-weight: 500;
+
+  /* --button-txt-color: var(--primary-color); */
+  /* --button-bck-color: va; */
+  /* --button-border-color: var(--primary-color); */
   /* --active-color: white; */
 
 }
@@ -130,18 +137,23 @@ button {
   font-size: 1rem;
   text-align: center;
   background: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--button-border-color);
+  color: var(--button-txt-color);
+  background: var(--button-bck-color);
   position: relative;
   cursor: pointer;
   outline: none;
   font-weight: bold;
+  transition: color 1s ease-out;
 }
+/* button > span {
+  z-index: 2;
+} */
 button::after {
   content: "";
   width: 100%;
   height: 100%;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--button-border-color);
   border-left: none;
   border-top: none;
   position: absolute;
@@ -150,6 +162,39 @@ button::after {
   background: transparent;
 }
 
+button:hover {
+  color: white;
+  transition: color 1s ease-out;
+}
+
+button:hover:before {
+  width: 100%;
+  transition: width .6s ease-in-out;
+}
+
+button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: var(--primary-color);
+  transition: width .6s ease-in-out;
+}
+
+@keyframes fill-in {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+/* ------------ loader ------------ */
 .loader-wrapper {
   position: absolute;
   height: 100vh;
@@ -159,7 +204,6 @@ button::after {
   overflow: hidden;
 }
 
-/* ------------ loader ------------ */
 .loader,
 .loader:before,
 .loader:after {
@@ -225,12 +269,18 @@ button::after {
   opacity: 1;
 }
 .from-bottom {
-  transform: translateY(25%);
+  transform: translateY(30%);
   opacity: .8;
   transition: all .5s ease-in;
 }
 .from-bottom.appear {
   opacity: 1;
   transform: translateY(0);
+}
+.scale-ele {
+  transition: .5s ease-out;
+}
+.scale-ele:hover {
+  transform: scale(1.5);
 }
 /* ------------ END - Animations ------------ */
