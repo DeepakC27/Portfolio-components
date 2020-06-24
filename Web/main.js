@@ -27,8 +27,6 @@ window.onload = () => {
           HEADING_MAX_WIDTH = 310
         }
         heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
-        // heading_text_wrapper.style.borderBottomColor = 'red'
-        // heading_text_wrapper.style.borderBottomStyle = 'solid'
 
         heading_text_list.map((heading, idx) => {
           heading.style.width = `${HEADING_MAX_WIDTH}px`
@@ -186,7 +184,7 @@ window.onload = () => {
         })
       }, {
         // threshold: .5,
-        rootMargin: '-25% 0% -25% 0%'
+        rootMargin: '0px 0px -100px 0px'
       })
 
       fadeIn_elements.forEach(ele => {
@@ -203,12 +201,10 @@ window.onload = () => {
       document.onmousemove = (event) => {
         const posX = event.clientX * 100 / window.innerWidth + '%'
         const posY = event.clientY * 100 / window.innerHeight + '%'
-        console.log('posX: ', posX)
-        console.log('posY: ', posY)
         eyeBalls.forEach(eyeball => {
           eyeball.style.left = posX
           eyeball.style.top = posY
-          // eyeball.style.transform = `translate(-${posX}, -${posY})`
+          eyeball.style.transform = `translate(-${posX}, -${posY})`
         })
       }
 
