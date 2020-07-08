@@ -108,7 +108,7 @@ nav .nav-item {
   transform: rotate(90deg);
 }
 .nav-item--active {
-  width: 6.5rem !important;
+  width: 7rem !important;
   padding: 0 .8rem !important;
   color: white !important;
 }
@@ -153,27 +153,31 @@ nav .nav-item {
   right: 0%;
   z-index: -1;
   top: 40%;
-  background-image: url('./images/minion.png');
+  background-image: url('./images/bob.png');
   transform: translateY(-50%);
   height: 350px;
   width: 350px;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: 2.5rem;
+  background-position-y: .5rem;
 }
 .left-eye-bounds, .right-eye-bounds {
   content: '';
   position: fixed;
-  height: 60px;
-  width: 60px;
+  height: 62px;
+  width: 63px;
   background: var(--white);
   border-radius: 50%;
   overflow: hidden;
 }
 .left-eye-bounds {
-  left: 112px;
+  left: 94px;
   top: 72px;
 }
 .right-eye-bounds {
-  right: 107px;
+  right: 121px;
   top: 71px;
 }
 .eyeball {
@@ -249,12 +253,12 @@ nav .nav-item {
 }
 .user-profile-pic {
   text-align: center;
+  position: relative;
 }
 .user-profile-pic img {
   height: 15rem;
   transition: all .3s ease-in;
   filter: grayscale(100%);
-  position: relative;
 }
 .user-profile-pic img:hover {
   filter: grayscale(0);
@@ -424,3 +428,66 @@ nav .nav-item {
   }
 }
 /* ------------ Contact me section ------------ */
+
+/* ------------ Tool tip css ------------ */
+.tool-tip-wrapper {
+  color: var(--primary-color);
+  border-radius: 100%;
+  border: 2px solid var(--primary-color);
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  width: 40px;
+  height: 28px;
+  margin: 0 2px;
+  padding-top: 12px;
+  transition: all .5s;
+}
+.tool-tip-wrapper.icon:before {
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.tool-tip-wrapper span {
+  background: transparent;
+  color: transparent;
+  font-weight: bold;
+  position:  absolute;
+  top: 0;
+  left: -1.7rem;
+  text-align: center;
+  right: -1.7rem;
+  padding: .5rem .5rem;
+  visibility: hidden;
+  font-size: 1rem;
+  opacity: 0;
+  transition: all .4s;
+  border: 2px solid var(--primary-color);
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.tool-tip-wrapper span:before {
+  content: '';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--primary-color);
+  position: absolute;
+  top: -5px;
+  left: 40px;
+}
+.tool-tip-wrapper:hover span {
+  top: 50px;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Hover through the icons */
+.tool-tip-wrapper.facebook:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+.tool-tip-wrapper.facebook span {
+  color: var(--primary-color);
+}
