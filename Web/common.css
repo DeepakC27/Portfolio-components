@@ -12,7 +12,7 @@
   --primary-color: var(--green);
   --secondary-color: var(--light-black);
   --background-color: var(--white);
-  --active-color: var(--red);
+  --active-color: var(--light-grey);
   --project-content-color: var(--light-grey);
   --loader-color: var(--primary-color);
   --theme-font-weight: initial;
@@ -45,6 +45,7 @@
   --theme-font-weight: bold;
   --nav-border: var(--secondary-color);
   --body-font-weight: 500;
+  --active-color: var(--white);
 
   /* --button-txt-color: var(--primary-color); */
   /* --button-bck-color: va; */
@@ -59,6 +60,12 @@
 }
 .bg_black {
   background: var(--secondary-color);
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
 }
 
 body {
@@ -128,6 +135,14 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
   }
   section > .container {
     padding: 3rem 0;
+  }
+}
+@media (max-width: 500px) {
+  .body-layout {
+    padding: 1rem 2rem;
+  }
+  section > .container {
+    padding: 1rem 0;
   }
 }
 

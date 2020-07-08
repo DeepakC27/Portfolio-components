@@ -2,68 +2,13 @@ const initialize = () => {
   /* ------- Global Var ------- */
     const RESUME_LINK = 'https://drive.google.com/file/d/1AkVAGWqSflKR3Rkixk6j_YM5Bc-btEbt/view?usp=sharing'
     const GITHUB = 'https://github.com/DeepakC27'
+    const MAIL_LINK = 'mailto:chaudharideepak10@hotmail.com'
   /* ------- END - Global Var ------- */
 
   setTimeout(() => {
     // hide loader
     const loader = document.getElementsByClassName('loader-wrapper')[0]
     loader.className = 'loader__disappear'
-
-    /* ------------- Intro headings ------------- */
-    const heading_text_wrapper = document.getElementsByClassName('into-headings-wrapper')[0]
-    const heading_text_list = Array.from(heading_text_wrapper.children)
-
-    renderHeadings = (isResized = false) => {
-      let HEADING_MAX_WIDTH = 500
-      if (window.innerWidth > 500 && window.innerWidth <= 600) {
-        HEADING_MAX_WIDTH = 420
-      }
-      if (window.innerWidth < 500) {
-        HEADING_MAX_WIDTH = 310
-      }
-      heading_text_wrapper.style.width = `${HEADING_MAX_WIDTH}px`
-
-      heading_text_list.map((heading, idx) => {
-        heading.style.width = `${HEADING_MAX_WIDTH}px`
-      })
-      // 1st text render
-      const FIRST_TIMER = isResized ? 0 : 500
-      const SECOND_TIMER = isResized ? 0 : 1500
-      const THIRD_TIMER = isResized ? 0 : 2000
-      setTimeout(() => {
-        let ele = heading_text_list[0]
-        let value = 3.5
-        if (window.innerWidth < 600) {
-          value = 2.5
-        }
-        ele.style.transform = `translateY(-${value}rem)`
-      }, FIRST_TIMER)
-
-      // 2nd text render
-      setTimeout(() => {
-        let ele = heading_text_list[1]
-        ele.style.opacity = '1'
-      }, SECOND_TIMER)
-
-      // 3rd text render
-      setTimeout(() => {
-        let ele = heading_text_list[2]
-        let value = 4.2
-        if (window.innerWidth < 600) {
-          value = 3
-        }
-        ele.style.transform = `translateY(${value}rem)`
-        ele.style.width = `${HEADING_MAX_WIDTH}px`
-        ele.style.opacity = '1'
-      }, THIRD_TIMER)
-    }
-    renderHeadings()
-    try {
-      window.onresize = _.debounce(() => renderHeadings(true), 500, { trailing: true })
-    } catch (err) {
-      console.log('err: ', err)
-    }
-    /* ------------- END - Intro headings ------------- */
 
     /* ------------- Navigation JS ------------- */
     const nav_Top_btn = document.querySelector('.nav-up-arrow')
@@ -220,6 +165,11 @@ const initialize = () => {
     const gitHub_viewMore_btn = document.getElementById('viewMore-github-btn')
     gitHub_viewMore_btn.onclick = () => {
       window.open(GITHUB)
+    }
+
+    const mailTo_Btn = document.getElementById('mailOpt-btn')
+    mailTo_Btn.onclick = () => {
+      window.location = MAIL_LINK
     }
 
     const viewResume_btn = document.getElementById('resumeOpt-btn')
