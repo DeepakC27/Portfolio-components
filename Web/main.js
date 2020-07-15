@@ -192,11 +192,5 @@ const initialize = () => {
 
 window.onload = () => {
   let script = document.createElement('script')
-  // script.type = 'text/javascript'
-  // script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js'
-  // document.body.appendChild(script)
-  // script.onload = () => {
-  //   initialize()
-  // }
   initialize()
 }

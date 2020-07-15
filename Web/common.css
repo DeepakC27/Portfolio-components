@@ -85,16 +85,13 @@ body {
 }
 .body-layout {
   padding: 2rem 8rem;
-  padding-bottom: 0 !important;
   transition: padding .5s ease-in-out;
 }
-
 main {
   height: 100%;
   overflow: scroll;
   position: relative;
 }
-
 article {
   height: 100%;
   overflow: scroll;
@@ -105,17 +102,14 @@ section {
   height: fit-content;
   margin-bottom: 3rem;
 }
-
 .section-heading {
   font-size: var(--sh-fontSize);
   font-weight: bold;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
-
 section > .container {
   padding: 5rem 0;
 }
-
 main::-webkit-scrollbar, article::-webkit-scrollbar {
   /* width: 5px; */
   /* background: var(--primary-color); */
@@ -123,6 +117,9 @@ main::-webkit-scrollbar, article::-webkit-scrollbar {
 }
 main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
   background: transparent;
+}
+.scrollbar-track {
+  display: none !important;
 }
 @media (min-width: 600px) and (max-width: 900px) {
   .body-layout {
