@@ -24,7 +24,7 @@
   --sh-fontSize: 2.5rem;
 
   --shadow-border_color: #d9d9d900;
-  --shadow-color: #d9d9d9;
+  --shadow-color: var(--green);
 
   --bottom-top_slideIn_val: 30%;
 
@@ -94,12 +94,12 @@ main {
   height: 100%;
   overflow: scroll;
   position: relative;
+  margin-top: 0 !important;
 }
 article {
   height: 100%;
   overflow: scroll;
   scroll-behavior: smooth;
-  padding-top: 0 !important;
 }
 section {
   height: fit-content;
@@ -222,6 +222,14 @@ button::before {
   }
 }
 
+.location-wrapper {
+  display: flex;
+  align-items: center;
+  /* flex-flow: row-reverse; */
+}
+.location-wrapper img {
+  margin-right: .5rem;
+}
 
 /* ------------ loader ------------ */
 .loader-wrapper {

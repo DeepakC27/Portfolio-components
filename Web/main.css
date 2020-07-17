@@ -349,6 +349,10 @@ nav .nav-item {
 #projects-section {
   height: fit-content;
 }
+#projects-section .container {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
 .project ul {
   padding: 0;
   list-style: none;
