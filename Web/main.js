@@ -141,7 +141,6 @@ const initialize = () => {
   const gitHub_viewMore_btn = document.getElementById('viewMore-github-btn')
   const mailTo_Btn = document.getElementById('mailOpt-btn')
   const viewResume_btn = document.getElementById('resumeOpt-btn')
-  const changeTheme_btn = document.getElementById('change-theme-btn')
 
   goToMyWorkBtn.onclick = () => {
     Array.from(nav_item_divs).map(item => { item.className = 'nav-item' })
@@ -155,18 +154,6 @@ const initialize = () => {
   mailTo_Btn.onclick = () => window.location = MAIL_LINK
 
   viewResume_btn.onclick = () => window.open(RESUME_LINK)
-
-  changeTheme_btn.onclick = () => toggleDarkMode()
-
-  toggleDarkMode = () => {
-    if (document.body.className.includes('dark-mode')) {
-      document.body.classList.remove('dark-mode')
-      changeTheme_btn.innerText = 'Dark Mode'
-    } else {
-      document.body.classList.add('dark-mode')
-      changeTheme_btn.innerText = 'Light Mode'
-    }
-  }
 
   const currentTime = new Date().getHours()
   if (currentTime < 5 && currentTime > 18) {

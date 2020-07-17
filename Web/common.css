@@ -6,7 +6,7 @@
 
   --white: white;
   --black: black;
-  --light-black: #333;
+  --light-black: #5e5c5c1f;
   --red: red;
   --light-grey: #25252545;
   --dark-grey: #dfdcdc2b;
@@ -15,7 +15,6 @@
   --secondary-color: var(--light-black);
   --background-color: var(--white);
   --active-color: var(--light-grey);
-  --project-content-color: var(--light-grey);
   --loader-color: var(--primary-color);
   --theme-font-weight: initial;
   --body-font-weight: 400;
@@ -24,7 +23,7 @@
   --sh-fontSize: 2.5rem;
 
   --shadow-border_color: #d9d9d900;
-  --shadow-color: var(--green);
+  --shadow-color: #d9d9d9;
 
   --bottom-top_slideIn_val: 30%;
 
@@ -43,7 +42,6 @@
   --secondary-color: var(--white);
   --background-color: var(--black);
   --loader-color: var(--white);
-  --project-content-color: var(--dark-grey);
   --theme-font-weight: bold;
   --nav-border: var(--secondary-color);
   --body-font-weight: 500;
@@ -87,7 +85,7 @@ body {
   box-sizing: border-box;
 }
 .body-layout {
-  margin: 2rem 8rem;
+  margin: 2rem 5rem;
   transition: padding .5s ease-in-out;
 }
 main {
@@ -103,7 +101,7 @@ article {
 }
 section {
   height: fit-content;
-  margin-bottom: 3rem;
+  margin-bottom: 8rem;
 }
 .section-heading {
   font-size: var(--sh-fontSize);
@@ -117,16 +115,17 @@ section {
   z-index: 1;
 }
 section > .container {
-  padding: 5rem 0;
+  padding: 3rem;
+  background: var(--light-black);
 }
-/* section hr {
+section hr {
   margin: 0;
   height: 8px;
   width: 150px;
   border: none;
   border-radius: 1rem;
   background: var(--primary-color);
-} */
+}
 main::-webkit-scrollbar, article::-webkit-scrollbar {
   /* width: 5px; */
   /* background: var(--primary-color); */
@@ -147,8 +146,11 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
   .body-layout {
     margin: 1rem 2rem;
   }
+  section {
+    margin-bottom: 4rem;
+  }
   section > .container {
-    padding: 3rem 0;
+    padding: 2rem;
   }
 }
 @media (max-width: 500px) {
@@ -156,7 +158,7 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
     margin: 1rem 2rem;
   }
   section > .container {
-    padding: 1rem 0;
+    padding: 1rem;
   }
 }
 
