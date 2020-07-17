@@ -1,15 +1,15 @@
 /* ------------ Header ------------ */
 header > div{
-  min-height: 60px;
   position: relative;
+  height: 40px;
 }
 
 header .header-logo  div:nth-child(2) {
-  height: 30px;
+  height: 35px;
   letter-spacing: 5px;
   font-weight: bold;
-  line-height: 1.5;
-  font-size: 1.2rem;
+  line-height: 1.7;
+  font-size: 1.25rem;
   padding: 0 3px;
 }
 header .header-logo .logo-arrow-icons {
@@ -288,17 +288,23 @@ nav .nav-item {
 /* ------------ END - About me section ------------ */
 
 /* ------------ Experience section ------------ */
+#timeline-section .container {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
 .timeline-content {
   width: 80%;
   background: var(--primary-color);
-  box-shadow: 0 0 12px 0 var(--shadow-color);
+  box-shadow: 0 0 12px 0 var(--primary-color);
   margin-bottom: 4.5rem;
   border-radius: 1rem;
 }
 .timeline-content > div {
   padding: 2rem;
 }
-.timeline-content .section-heading {
+.timeline-content .timeline-heading {
+  font-size: 2rem;
+  font-weight: bold;
   color: var(--white);
 }
 .timeline-content .content-descp {
@@ -356,9 +362,15 @@ nav .nav-item {
   font-weight: lighter;
   font-size: .8rem;
 }
+.project-links li {
+  margin: 0 4px;
+}
 .project-links img {
   height: 1.5rem;
   width: auto;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--white);
 }
 
 .project {

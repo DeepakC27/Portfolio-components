@@ -2,6 +2,8 @@
 
   /* ----- colors ----- */
   --green: #0fb36c;
+  /* --green: #0fb36c; old color */
+
   --white: white;
   --black: black;
   --light-black: #333;
@@ -82,9 +84,10 @@ body {
   color: var(--secondary-color);
   background: var(--background-color);
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 .body-layout {
-  padding: 2rem 8rem;
+  margin: 2rem 8rem;
   transition: padding .5s ease-in-out;
 }
 main {
@@ -105,11 +108,25 @@ section {
 .section-heading {
   font-size: var(--sh-fontSize);
   font-weight: bold;
-  /* padding-top: 3rem; */
+}
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: var(--background-color);
+  width: 100%;
+  z-index: 1;
 }
 section > .container {
   padding: 5rem 0;
 }
+/* section hr {
+  margin: 0;
+  height: 8px;
+  width: 150px;
+  border: none;
+  border-radius: 1rem;
+  background: var(--primary-color);
+} */
 main::-webkit-scrollbar, article::-webkit-scrollbar {
   /* width: 5px; */
   /* background: var(--primary-color); */
@@ -123,12 +140,12 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
 }
 @media (min-width: 600px) and (max-width: 900px) {
   .body-layout {
-    padding: 1.5rem 3.5rem;
+    margin: 1.5rem 3.5rem;
   }
 }
 @media (max-width: 600px) {
   .body-layout {
-    padding: 1rem 2rem;
+    margin: 1rem 2rem;
   }
   section > .container {
     padding: 3rem 0;
@@ -136,7 +153,7 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
 }
 @media (max-width: 500px) {
   .body-layout {
-    padding: 1rem 2rem;
+    margin: 1rem 2rem;
   }
   section > .container {
     padding: 1rem 0;
@@ -290,9 +307,9 @@ button::before {
   transform: translateY(0);
 }
 .scale-ele {
-  transition: .25s ease-out;
+  transition: all .25s ease-out;
 }
 .scale-ele:hover {
-  transform: scale(1.5);
+  transform: scale(1.5) rotate(-360deg);
 }
 /* ------------ END - Animations ------------ */
