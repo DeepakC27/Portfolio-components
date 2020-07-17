@@ -295,7 +295,7 @@ nav .nav-item {
 .timeline-content {
   width: 80%;
   background: var(--primary-color);
-  box-shadow: 0 0 12px 0 var(--primary-color);
+  box-shadow: 0 0 12px 0 var(--shadow-color);
   margin-bottom: 4.5rem;
   border-radius: 1rem;
 }
