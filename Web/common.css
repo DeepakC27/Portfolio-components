@@ -26,8 +26,6 @@
   --shadow-border_color: #d9d9d900;
   --shadow-color: #d9d9d9;
 
-  --bottom-top_slideIn_val: 30%;
-
   --button-txt-color: var(--primary-color);
   --button-bck-color: transparent;
   --button-border-color: var(--primary-color);
@@ -35,7 +33,6 @@
 
  @media (max-width: 600px) {
   :root {
-    --bottom-top_slideIn_val: 20%;
     --sh-fontSize: 2rem;
   }
 }
@@ -48,12 +45,6 @@
   --nav-border: var(--secondary-color);
   --body-font-weight: 500;
   --active-color: var(--white);
-
-  /* --button-txt-color: var(--primary-color); */
-  /* --button-bck-color: va; */
-  /* --button-border-color: var(--primary-color); */
-  /* --active-color: white; */
-
 }
 
 .fg_green {
@@ -68,6 +59,9 @@
 }
 .text-center {
   text-align: center;
+}
+h1, h2, h3 {
+  margin: 0;
 }
 
 body {
@@ -118,15 +112,16 @@ section {
 }
 section > .container {
   padding: 5rem 0;
+  font-size: 1rem;
 }
-/* section hr {
+section hr {
   margin: 0;
   height: 8px;
   width: 150px;
   border: none;
   border-radius: 1rem;
   background: var(--primary-color);
-} */
+}
 main::-webkit-scrollbar, article::-webkit-scrollbar {
   /* width: 5px; */
   /* background: var(--primary-color); */
@@ -156,7 +151,7 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
     margin: 1rem 2rem;
   }
   section > .container {
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
 }
 

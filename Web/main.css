@@ -47,7 +47,7 @@ header .header-logo .logo-arrow-icons {
 /* ------------ Side Bar ------------ */
 main aside {
   position: fixed;
-  left: 4.5rem;
+  left: 3.2rem;
   top: 35vh;
   transform: rotate(90deg);
   z-index: 15;
@@ -128,7 +128,6 @@ nav .nav-item {
 }
 .intro-headings-wrapper h1 {
   font-size: 4rem !important;
-  margin: 0;
   font-weight: bolder;
   /* text-shadow: 2px 3px 0px var(--light-grey); */
 }
@@ -287,17 +286,52 @@ nav .nav-item {
 }
 /* ------------ END - About me section ------------ */
 
+/* ------------ Skills Section ------------ */
+#skills-section {
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+.skills-container .skill-content {
+  display: flex;
+  align-items: center;
+}
+.skill-content img {
+  width: 2rem;
+  height: auto;
+}
+@media (min-width: 600px) and (max-width: 1020px) {
+  .skills-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* ------------ END - Skills Section ------------ */
+
+
 /* ------------ Experience section ------------ */
 #timeline-section .container {
   padding-left: .5rem;
   padding-right: .5rem;
 }
+#timeline-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 0 auto;
+}
 .timeline-content {
-  width: 80%;
+  width: 90%;
+  height: fit-content;
   background: var(--primary-color);
   box-shadow: 0 0 12px 0 var(--shadow-color);
   margin-bottom: 4.5rem;
-  border-radius: 1rem;
 }
 .timeline-content > div {
   padding: 2rem;
@@ -306,10 +340,10 @@ nav .nav-item {
   font-size: 2rem;
   font-weight: bold;
   color: var(--white);
+  border-bottom: 5px solid var(--primary-color)
 }
 .timeline-content .content-descp {
   position: relative;
-  border-radius: 1rem;
   background: var(--background-color);
 }
 .timeline-content .company-logo {
@@ -329,18 +363,9 @@ nav .nav-item {
 .timeline-content .content-descp ul li {
   padding-bottom: .5rem;
 }
-/* .timeline-content .content-descp ul li::before {
-  content: "•";
-  color: var(--primary-color);
-  display: inline-block;
-  width: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-} */
-
-@media (max-width: 700px) {
-  .timeline-content {
-    width: 100%;
+@media (max-width: 900px) {
+  #timeline-container {
+      grid-template-columns: 1fr;
   }
 }
 /* ------------ END - Experience section ------------ */
