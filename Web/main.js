@@ -17,7 +17,7 @@ const initialize = () => {
 
   const NAV_LIST_LENGTH = 4
   const ROOT_CONTAINER_HEIGHT = root_container.clientHeight
-  const HEADERS_ITEM_SCROLL_VALUE = 35
+  const HEADERS_ITEM_SCROLL_VALUE = 34
   let scroll_position_value = 0
   let scrolled_Via_Btn
   let active_NavItem_Index = 0
@@ -95,12 +95,26 @@ const initialize = () => {
   const eleScrollObserver = new IntersectionObserver((entries, eleScrollObserver) => {
     entries.forEach(entry => {
       let ele = entry.target
-      if (!entry.isIntersecting) return
+      if (!entry.isIntersecting) {
+        try {
+          entry.target.children[0].childNodes[1].className = ''
+        } catch(err) {
+          console.log(err)
+        }
+        return
+      }
       else {
         sectionsList.forEach((section, idx) => {
           if (scrolled_Via_Btn) return
           if (section.id === ele.id) {
             active_NavItem_Index = idx
+            try {
+              if (idx !== 0) {
+                section.children[0].childNodes[1].className = 'appear'
+              }
+            } catch(err) {
+              console.log(err)
+            }
             displayActiveSection()
           }
         })
@@ -154,11 +168,6 @@ const initialize = () => {
   mailTo_Btn.onclick = () => window.location = MAIL_LINK
 
   viewResume_btn.onclick = () => window.open(RESUME_LINK)
-
-  const currentTime = new Date().getHours()
-  if (currentTime < 5 && currentTime > 18) {
-    toggleDarkMode()
-  }
   /* ------------- END - Action Buttons --------------- */
 }
 

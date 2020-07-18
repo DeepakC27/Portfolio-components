@@ -12,7 +12,7 @@
   --dark-grey: #dfdcdc2b;
 
   --primary-color: var(--green);
-  --secondary-color: var(--light-black);
+  --secondary-color: var(--black);
   --background-color: var(--white);
   --active-color: var(--light-grey);
   --loader-color: var(--primary-color);
@@ -46,12 +46,6 @@
   --nav-border: var(--secondary-color);
   --body-font-weight: 500;
   --active-color: var(--white);
-
-  /* --button-txt-color: var(--primary-color); */
-  /* --button-bck-color: va; */
-  /* --button-border-color: var(--primary-color); */
-  /* --active-color: white; */
-
 }
 
 .fg_green {
@@ -67,18 +61,28 @@
 .text-center {
   text-align: center;
 }
+h1, h2, h3, h4, ul {
+  margin: 0;
+}
+.mb10 {
+  margin-bottom: 1rem;
+}
+.rmb {
+  margin-bottom: 0;
+}
 
 body {
   margin: 0;
   height: 100vh;
-  font-size: 1.1rem;
+  font-size: 1rem;
   /* font-family: sans-serif; */
   font-family: 'Fira Sans', sans-serif;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   font-weight: var(--body-font-weight);
-  line-height: 1.42857143;
+  line-height: 1.8;
+  letter-spacing: .05rem;
   color: var(--secondary-color);
   background: var(--background-color);
   overflow-x: hidden;
@@ -96,7 +100,8 @@ main {
 }
 article {
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 section {
@@ -121,11 +126,17 @@ section > .container {
 section hr {
   margin: 0;
   height: 8px;
-  width: 150px;
+  width: 0px;
   border: none;
   border-radius: 1rem;
   background: var(--primary-color);
+  transition: width .6s ease-in-out;
 }
+hr.appear{
+  width: 150px;
+  transition: width .6s ease-in-out;
+}
+
 main::-webkit-scrollbar, article::-webkit-scrollbar {
   /* width: 5px; */
   /* background: var(--primary-color); */
@@ -144,23 +155,20 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
 }
 @media (max-width: 600px) {
   .body-layout {
-    margin: 1rem 2rem;
+    margin: 1.5rem;
   }
   section {
     margin-bottom: 4rem;
   }
   section > .container {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 }
-@media (max-width: 500px) {
-  .body-layout {
-    margin: 1rem 2rem;
-  }
+/* @media (max-width: 500px) {
   section > .container {
     padding: 1rem;
   }
-}
+} */
 
 button {
   width: 250px;
@@ -177,9 +185,6 @@ button {
   font-weight: bold;
   transition: color 1s ease-out;
 }
-/* button > span {
-  z-index: 2;
-} */
 button::after {
   content: "";
   width: 100%;
@@ -192,17 +197,14 @@ button::after {
   left: .5rem;
   background: transparent;
 }
-
 button:hover {
   color: white;
   transition: color 1s ease-out;
 }
-
 button:hover:before {
   width: 100%;
   transition: width .6s ease-in-out;
 }
-
 button::before {
   content: "";
   width: 0%;
@@ -213,6 +215,11 @@ button::before {
   z-index: -1;
   background: var(--primary-color);
   transition: width .6s ease-in-out;
+}
+.buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1rem;
 }
 
 @keyframes fill-in {
