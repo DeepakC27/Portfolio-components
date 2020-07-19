@@ -260,11 +260,10 @@ nav .nav-item {
   margin: 0 4px;
 }
 .project-links img {
-  height: 1.5rem;
+  height: 2rem;
   width: auto;
   border-radius: 50%;
   background: var(--white);
-  border: 2px solid var(--white);
 }
 
 .project {
@@ -446,30 +445,36 @@ nav .nav-item {
 /* ------------ END - About me section ------------ */
 
 /* ------------ Skills Section ------------ */
-#skills-section {
-}
-.skills-container {
+#skills-section .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
 }
-.skills-container .skill-content {
+.hex-box .hex-content {
   display: flex;
+  justify-content: center;
   align-items: center;
+  margin: 2.8rem 0;
 }
-.skill-content img {
-  width: 2rem;
-  height: auto;
+.hex-content img {
+  z-index: 2;
+  position: absolute;
+  height: 80px;
 }
-@media (min-width: 600px) and (max-width: 1020px) {
-  .skills-container {
-    grid-template-columns: 1fr 1fr;
-  }
+.hex-box:nth-child(1) {
+  grid-column-start: 2;
 }
 @media (max-width: 600px) {
-  .skills-container {
-    grid-template-columns: 1fr;
+  .hex-box:nth-child(1) {
+    grid-column-start: 1;
+  }
+  .hex-box:nth-child(3) {
+    grid-row-start: 2;
+    grid-column: span 2;
+  }
+  .hex-box:nth-child(3) .hex-content {
+    margin: 0 0 3rem 0;
   }
 }
 /* ------------ END - Skills Section ------------ */

@@ -132,7 +132,7 @@ section {
 }
 .sticky-header {
   position: sticky;
-  top: 0;
+  top: -1px;
   background: var(--background-color);
   width: 100%;
   z-index: 5;
@@ -264,6 +264,33 @@ button::before {
 }
 .location-wrapper img {
   margin-right: .5rem;
+}
+
+.hex-box {
+  /* height: 180px; */
+  display: grid;
+  place-content: center;
+}
+.hex-content {
+  width: 150px;
+  height: 85px;
+  position: relative;
+  background: var(--background-color);
+}
+.hex-content::before, .hex-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 85px;
+  width: 150px;
+  background: var(--background-color);
+}
+.hex-content::before {
+  transform: rotate(60deg);
+}
+.hex-content::after {
+  transform: rotate(-60deg);
 }
 
 /* ------------ loader ------------ */
