@@ -57,7 +57,7 @@
   --active-color: var(--white);
 }
 
-.fg_green {
+.fg-primary-clr {
   color: var(--primary-color);
   font-weight: var(--theme-font-weight);
 }
@@ -78,6 +78,13 @@ h1 {
 }
 h2 {
   font-size: var(--h2-fontSize);
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+a span {
+  color: var(--primary-color);
 }
 .mb10 {
   margin-bottom: 1rem !important;
@@ -132,7 +139,7 @@ section {
 }
 .sticky-header {
   position: sticky;
-  top: -1px;
+  top: 0;
   background: var(--background-color);
   width: 100%;
   z-index: 5;
@@ -174,6 +181,9 @@ main::-webkit-scrollbar-track, article::-webkit-scrollbar-track {
 @media (max-width: 600px) {
   .body-layout {
     margin: 1.5rem;
+  }
+  .sticky-header {
+    top: -1px;
   }
   section {
     margin-bottom: 4rem;

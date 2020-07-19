@@ -430,9 +430,6 @@ nav .nav-item {
 .user-profile-pic img:hover {
   filter: grayscale(0);
 }
-#about-me-section .container a {
-  text-decoration: none;
-}
 @media (max-width: 800px) {
   #about-me-section .container {
     display: grid;
@@ -450,6 +447,12 @@ nav .nav-item {
   grid-template-columns: repeat(6, 1fr);
   grid-column-gap: .5rem;
   grid-row-gap: .5rem;
+  position: relative;
+}
+.note-text {
+  position: absolute;
+  right: 2rem;
+  bottom: 0rem;
 }
 .hex-box .hex-content {
   display: flex;
@@ -466,6 +469,9 @@ nav .nav-item {
   grid-column-start: 2;
 }
 @media (max-width: 600px) {
+  .note-text {
+    right: 1.5rem;
+  }
   .hex-box:nth-child(1) {
     grid-column-start: 1;
   }
