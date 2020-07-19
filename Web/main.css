@@ -33,10 +33,11 @@ header .header-logo .logo-arrow-icons {
   font-weight: bold;
 }
 .header-list-wrapper > div > div {
-  margin: 2px 0;
-  height: 32px;
-  letter-spacing: .5rem;
+  height: 32.5px;
+  letter-spacing: .45rem;
   color: var(--primary-color);
+  display: grid;
+  place-content: center;
 }
 @media (min-width: 600px) and (max-width: 900px) {
 }
