@@ -96,11 +96,6 @@ const initialize = () => {
     entries.forEach(entry => {
       let ele = entry.target
       if (!entry.isIntersecting) {
-        try {
-          entry.target.children[0].childNodes[1].className = ''
-        } catch(err) {
-          console.log(err)
-        }
         return
       }
       else {
@@ -108,13 +103,6 @@ const initialize = () => {
           if (scrolled_Via_Btn) return
           if (section.id === ele.id) {
             active_NavItem_Index = idx
-            try {
-              if (idx !== 0) {
-                section.children[0].childNodes[1].className = 'appear'
-              }
-            } catch(err) {
-              console.log(err)
-            }
             displayActiveSection()
           }
         })
@@ -125,6 +113,23 @@ const initialize = () => {
   })
   sectionsList.forEach(section => {
     eleScrollObserver.observe(section)
+  })
+
+  const activeHeaderObserver = new IntersectionObserver((entries, activeHeaderObserver) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        entry.target.children[0].classList.remove('appear')
+        return
+      } else {
+        entry.target.children[0].classList.add('appear')
+      }
+    })
+  }, {
+    rootMargin: '-20% 0% -60% 0%'
+  })
+  const sectionHeadersList = document.querySelectorAll('.section-heading')
+  sectionHeadersList.forEach(ele => {
+    activeHeaderObserver.observe(ele)
   })
 
   const displayOnScroll = new IntersectionObserver((entries, displayOnScroll) => {

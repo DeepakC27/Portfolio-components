@@ -10,8 +10,8 @@
       React Js, javascript, Mumbai, Resume, Portfolio'
     />
     <!-- rel='dns-prefetch'  -->
-    <link rel='dns-prefetch stylesheet'
-      defer href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap' />
+    <!-- <link rel='dns-prefetch stylesheet'
+      defer href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap' /> -->
     <link rel='shortcut icon' type='image/png' href='./icons/favicon.png' />
     <link rel='stylesheet' type='text/css' href='common.css' />
     <link rel='stylesheet' type='text/css' href='main.css' />
@@ -77,16 +77,16 @@
               In my spare time, you can probably find me <span class='fg_green'><del>cooking</del></span> eating food, exploring somewhere or working on my personal projects.
             </p>
             <div class='buttons-container fade-in'>
-              <button id='view-work-btn'>
+              <button class='merge-2_col' id='view-work-btn'>
                 <span>View my work</span>
               </button>
             </div>
           </div>
         </section>
         <section id='projects-section'>
-          <div class='section-heading sticky-header'>
+          <h1 class='section-heading sticky-header'>
             Things i've build<hr />
-          </div>
+          </h1>
           <div class='container'>
             <div class='project slide-in from-bottom'>
               <div class='project__left-view project-content'>
@@ -145,22 +145,24 @@
               </div>
             </div>
             <div class='buttons-container fade-in'>
-              <button id='viewMore-github-btn'>
+              <button class='merge-2_col' id='viewMore-github-btn'>
                 <span>View more on Github</span>
               </button>
             </div>
           </div>
         </section>
         <section id='timeline-section'>
-          <div class='section-heading sticky-header'>Experience Timeline<hr /></div>
+          <h1 class='section-heading sticky-header'>Experience Timeline<hr /></h1>
           <div class='container'>
             <div id='timeline-container'>
-              <div class='timeline-content '>
-                <div class='timeline-heading'>Nov 2017 - PRESENT</div>
+              <div class='timeline-card'>
+                <h2 class='timeline-heading'>Nov 2017 - PRESENT</h2>
                 <div class='content-descp'>
                   <img class='company-logo' alt='servify' src='./icons/Servify_logo.png' />
                   <div class='fade-in'>
-                    Product engineer at <span class='fg_green'><b>SERVIFY</b></span>
+                    <p>
+                      Product engineer at <span class='fg_green'><b>SERVIFY</b></span>
+                    </p>
                     <ul>
                       <li>Created React-Redux based consumer application for the device after-sales processing featuring purchasing insurance plans, repair, exchange etc.
                       <br />For the OEM's like Apple, OnePlus, Nokia, Motorola, Samsung & many others.</li>
@@ -175,12 +177,14 @@
                   </div>
                 </div>
               </div>
-              <div class='timeline-content'>
-                <div class='timeline-heading'>Dec 2015 - Jan 2016</div>
+              <div class='timeline-card'>
+                <h2 class='timeline-heading'>Dec 2015 - Jan 2016</h2>
                 <div class='content-descp'>
                   <img class='company-logo' alt='vindoshop' src='./icons/Vindoshop_logo.png' />
                   <div class='fade-in'>
-                    Intern at <span class='fg_green'><b>VINDOSHOP</b></span>
+                    <p>
+                      Intern at <span class='fg_green'><b>VINDOSHOP</b></span>
+                    </p>
                     <ul>
                       <li>Builing UI components for Windows app</li>
                       <li>Carrying out assurance test</li>
@@ -197,23 +201,23 @@
           </div>
         </section>
         <section id='about-me-section'>
-          <div class='section-heading sticky-header'>About Me<hr />
+          <h1 class='section-heading sticky-header'>About Me<hr />
             <!-- <img src='./icons/icons8-account-50.png' /> -->
-          </div>
+          </h1>
           <div class='container'>
             <div class='about-me-info'>
-              <p>
+              <p class='rm_tm'>
                 I am an outgoing and adventurous individual with passion for luxury automobiles. I enjoy seasonal trekking and hiking on unfavourable terrains and challenging weathers.
               </p>
               <p>
                 Shortly after graduating from <a rel='nofollow noopener noreferrer' href='http://www.vjti.ac.in/' target='_blank'>
                   <span class='fg_green'>VJTI</span>
-                </a>, I joined the engineering team at a customer-centric service organisation called&nbsp;
+                </a>, I joined the engineering team at a customer-centric service organisation&nbsp;
                 <a rel='nofollow noopener noreferrer' href='https://servify.in/' target='_blank'>
                   <span class='fg_green'>Servify</span>
                 </a> where I work on a wide variety of interesting and meaningful projects on a daily basis.
               </p>
-              <p class='rmb'>
+              <p class='rm_bm'>
                 Have been working as React JS UI/UX developer building high performing presentation layers, building reusable components, and performance optimisations. It has been my intention to focus on interactive engagement in applications across all devices for a seamless and meaningful user experience.
               </p>
             </div>
@@ -223,7 +227,7 @@
           </div>
         </section>
         <section id='skills-section'>
-          <div class='section-heading sticky-header'>Skills <hr /></div>
+          <h1 class='section-heading sticky-header'>Skills <hr /></h1>
           <div class='container'>
             <div class='skills-container'>
               <div class='skill-content'>
@@ -263,7 +267,7 @@
           </div>
         </section>
         <section id='contact-me-section'>
-          <div class='section-heading sticky-header'>Get in touch<hr /></div>
+          <h1 class='section-heading sticky-header'>Get in touch<hr /></h1>
           <div class='container'>
             <p>
               Always looking for new opportunities & challenges. If you have any, don't hesitate, feel free to drop a mail. I will try my best to respond as soon as possible.
