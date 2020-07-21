@@ -17,7 +17,7 @@ const initialize = () => {
 
   const NAV_LIST_LENGTH = 4
   const ROOT_CONTAINER_HEIGHT = root_container.clientHeight
-  const HEADERS_ITEM_SCROLL_VALUE = 35
+  const HEADERS_ITEM_SCROLL_VALUE = 32
   let scroll_position_value = 0
   let scrolled_Via_Btn
   let active_NavItem_Index = 0
@@ -95,7 +95,9 @@ const initialize = () => {
   const eleScrollObserver = new IntersectionObserver((entries, eleScrollObserver) => {
     entries.forEach(entry => {
       let ele = entry.target
-      if (!entry.isIntersecting) return
+      if (!entry.isIntersecting) {
+        return
+      }
       else {
         sectionsList.forEach((section, idx) => {
           if (scrolled_Via_Btn) return
@@ -111,6 +113,23 @@ const initialize = () => {
   })
   sectionsList.forEach(section => {
     eleScrollObserver.observe(section)
+  })
+
+  const activeHeaderObserver = new IntersectionObserver((entries, activeHeaderObserver) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        entry.target.children[0].classList.remove('appear')
+        return
+      } else {
+        entry.target.children[0].classList.add('appear')
+      }
+    })
+  }, {
+    rootMargin: '-16.5% 0% -60% 0%'
+  })
+  const sectionHeadersList = document.querySelectorAll('.section-heading')
+  sectionHeadersList.forEach(ele => {
+    activeHeaderObserver.observe(ele)
   })
 
   const displayOnScroll = new IntersectionObserver((entries, displayOnScroll) => {
@@ -141,7 +160,6 @@ const initialize = () => {
   const gitHub_viewMore_btn = document.getElementById('viewMore-github-btn')
   const mailTo_Btn = document.getElementById('mailOpt-btn')
   const viewResume_btn = document.getElementById('resumeOpt-btn')
-  const changeTheme_btn = document.getElementById('change-theme-btn')
 
   goToMyWorkBtn.onclick = () => {
     Array.from(nav_item_divs).map(item => { item.className = 'nav-item' })
@@ -155,23 +173,6 @@ const initialize = () => {
   mailTo_Btn.onclick = () => window.location = MAIL_LINK
 
   viewResume_btn.onclick = () => window.open(RESUME_LINK)
-
-  changeTheme_btn.onclick = () => toggleDarkMode()
-
-  toggleDarkMode = () => {
-    if (document.body.className.includes('dark-mode')) {
-      document.body.classList.remove('dark-mode')
-      changeTheme_btn.innerText = 'Dark Mode'
-    } else {
-      document.body.classList.add('dark-mode')
-      changeTheme_btn.innerText = 'Light Mode'
-    }
-  }
-
-  const currentTime = new Date().getHours()
-  if (currentTime < 5 && currentTime > 18) {
-    toggleDarkMode()
-  }
   /* ------------- END - Action Buttons --------------- */
 }
 

@@ -9,15 +9,14 @@
     <meta name='keywords' content='Deepak, Chaudhari, Deepak Chaudhari, front-end developer,
       React Js, javascript, Mumbai, Resume, Portfolio'
     />
-    <!-- rel='dns-prefetch'  -->
     <!-- <link rel='dns-prefetch stylesheet'
-      defer href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap' /> -->
+      href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap' /> -->
     <link rel='shortcut icon' type='image/png' href='./icons/favicon.png' />
-    <link rel='stylesheet' type='text/css' href='common.css' />
-    <link rel='stylesheet' type='text/css' href='main.css' />
+    <link rel='stylesheet' type='text/css' href='./styles/common.css' />
+    <link rel='stylesheet' type='text/css' href='./styles/main.css' />
     <title lang='en'>Deepak | Front-end developer</title>
   </head>
-  <body>
+  <body class='dark-mode'>
     <div class='loader-wrapper'>
       <div class='loader'><div>DC</div></div>
     </div>
@@ -59,9 +58,9 @@
         <section id='home-page-section'>
           <div class='container'>
             <div class='intro-headings-wrapper'>
-                <p>Hi there, I'm</p>
-                <h1 class='fg_green'>Deepak Chaudhari</h1>
-                <div>Developer & Explorer</div>
+                <h2>Hi there, I'm</h2>
+                <h1 class='fg-primary-clr'>Deepak Chaudhari</h1>
+                <h2 class='text-right'>Developer & Explorer</h2>
               </div>
             <div class='landing-page_img fade-in'>
               <img alt='bob' src='./images/bob.png' />
@@ -74,29 +73,26 @@
             </div>
             <p class='intro-section_content fade-in'>
               I'm a software engineer based in Mumbai, B.Tech specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
-              In my spare time, you can probably find me <span class='fg_green'><del>cooking</del></span> eating food, exploring somewhere or working on my personal projects.
+              In my spare time, you can probably find me <span class='fg-primary-clr'><del>cooking</del></span> eating food, exploring somewhere or working on my personal projects.
             </p>
-            <div class='home-btn fade-in'>
-              <button id='view-work-btn'>
+            <div class='buttons-container fade-in'>
+              <button class='merge-2_col' id='view-work-btn'>
                 <span>View my work</span>
-              </button>
-              <button id='change-theme-btn'>
-                <span>Dark Mode</span>
               </button>
             </div>
           </div>
         </section>
         <section id='projects-section'>
-          <div class='section-heading sticky-header'>
+          <h1 class='section-heading sticky-header'>
             Things i've build<hr />
-          </div>
+          </h1>
           <div class='container'>
             <div class='project slide-in from-bottom'>
               <div class='project__left-view project-content'>
                 <h4 class='project-title'>Video Conferencing App</h4>
                 <div class='project-details'>
                   <p>Video conferencing web app using meet.jit.si.</p>
-                  <ul class='project-tech-stack'>
+                  <ul class='project-tech-stack small-font'>
                     <li>React JS</li>
                     <li>HTML & SCSS</li>
                     <li>Bootstrap</li>
@@ -130,7 +126,7 @@
                 <h4 class='project-title'>Pac man</h4>
                 <div class='project-details'>
                   <p>Extensive use of JS to create dynamic elements & displaying animated effects.</p>
-                  <ul class='project-tech-stack'>
+                  <ul class='project-tech-stack mb10 small-font'>
                     <li>Vanilla JS</li>
                     <li>HTML & CSS</li>
                   </ul>
@@ -147,41 +143,25 @@
                 <!-- <img src='' alt='component-img' /> -->
               </div>
             </div>
-            <div class='projects-btn fade-in'>
-              <button id='viewMore-github-btn'>
+            <div class='buttons-container fade-in'>
+              <button class='merge-2_col' id='viewMore-github-btn'>
                 <span>View more on Github</span>
               </button>
             </div>
           </div>
         </section>
         <section id='timeline-section'>
-          <div class='section-heading sticky-header'>Experience Timeline<hr /></div>
+          <h1 class='section-heading sticky-header'>Experience Timeline<hr /></h1>
           <div class='container'>
             <div id='timeline-container'>
-              <div class='timeline-content'>
-                <div class='timeline-heading'>Dec 2015 - Jan 2016</div>
-                <div class='content-descp'>
-                  <img class='company-logo' alt='vindoshop' src='./icons/Vindoshop_logo.png' />
-                  <div class='fade-in'>
-                    Intern at <span class='fg_green'><b>VINDOSHOP</b></span>
-                    <ul>
-                      <li>Builing UI components for Windows app</li>
-                      <li>Carrying out assurance test</li>
-                      <li>Building Custom UI components for web</li>
-                    </ul>
-                    <div class='location-wrapper'>
-                      <img alt='location' src='./icons/location_icon.png' />
-                      <span>Mumbai, India</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class='timeline-content '>
-                <div class='timeline-heading'>Nov 2017 - PRESENT</div>
+              <div class='timeline-card'>
+                <h2 class='timeline-heading'>Nov 2017 - PRESENT</h2>
                 <div class='content-descp'>
                   <img class='company-logo' alt='servify' src='./icons/Servify_logo.png' />
                   <div class='fade-in'>
-                    Product engineer at <span class='fg_green'><b>SERVIFY</b></span>
+                    <p>
+                      Product engineer at <span class='fg-primary-clr'><b>SERVIFY</b></span>
+                    </p>
                     <ul>
                       <li>Created React-Redux based consumer application for the device after-sales processing featuring purchasing insurance plans, repair, exchange etc.
                       <br />For the OEM's like Apple, OnePlus, Nokia, Motorola, Samsung & many others.</li>
@@ -196,36 +176,49 @@
                   </div>
                 </div>
               </div>
+              <div class='timeline-card'>
+                <h2 class='timeline-heading'>Dec 2015 - Jan 2016</h2>
+                <div class='content-descp'>
+                  <img class='company-logo' alt='vindoshop' src='./icons/Vindoshop_logo.png' />
+                  <div class='fade-in'>
+                    <p>
+                      Intern at <span class='fg-primary-clr'><b>VINDOSHOP</b></span>
+                    </p>
+                    <ul>
+                      <li>Builing UI components for Windows app</li>
+                      <li>Carrying out assurance test</li>
+                      <li>Building Custom UI components for web</li>
+                    </ul>
+                    <div class='location-wrapper'>
+                      <img alt='location' src='./icons/location_icon.png' />
+                      <span>Mumbai, India</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         <section id='about-me-section'>
-          <div class='section-heading sticky-header'>About Me<hr />
+          <h1 class='section-heading sticky-header'>About Me<hr />
             <!-- <img src='./icons/icons8-account-50.png' /> -->
-          </div>
+          </h1>
           <div class='container'>
             <div class='about-me-info'>
-              <p>
+              <p class='rm_tm'>
                 I am an outgoing and adventurous individual with passion for luxury automobiles. I enjoy seasonal trekking and hiking on unfavourable terrains and challenging weathers.
               </p>
               <p>
-                <p>Shortly after graduating from <a rel='nofollow noopener noreferrer' href='http://www.vjti.ac.in/' target='_blank'>
-                  <span class='fg_green'>VJTI</span>
-                </a>, I joined the engineering team at a customer-centric service organisation called&nbsp;
+                Shortly after graduating from <a rel='nofollow noopener noreferrer' href='http://www.vjti.ac.in/' target='_blank'>
+                  <span>VJTI</span>
+                </a>, I joined the engineering team at a customer-centric service organisation&nbsp;
                 <a rel='nofollow noopener noreferrer' href='https://servify.in/' target='_blank'>
-                  <span class='fg_green'>Servify</span>
-                </a> where I work on a wide variety of interesting and meaningful projects on a daily basis.</p>
+                  <span>Servify</span>
+                </a> where I work on a wide variety of interesting and meaningful projects on a daily basis.
               </p>
-              <p>
+              <p class='rm_bm'>
                 Have been working as React JS UI/UX developer building high performing presentation layers, building reusable components, and performance optimisations. It has been my intention to focus on interactive engagement in applications across all devices for a seamless and meaningful user experience.
               </p>
-              <p>Here are a few technologies I've been working with recently:</p>
-              <ul>
-                <li>JavaScript (ES6+)</li>
-                <li>HTML &amp; (S)CSS</li>
-                <li>React</li>
-                <li>jQuery</li>
-              </ul>
             </div>
             <div class='user-profile-pic slide-in from-bottom'>
               <img src='./images/user-img.png' alt='user-pic' />
@@ -233,52 +226,47 @@
           </div>
         </section>
         <section id='skills-section'>
-          <div class='section-heading sticky-header'>Skills <hr /></div>
+          <h1 class='section-heading sticky-header'>Skills <hr /></h1>
           <div class='container'>
-            <div class='skills-container'>
-              <div class='skill-content'>
-                <div>
-                  <img alt='web' src='./icons/github.svg' />
+            <div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='html5-img' src='./icons/html5-color.svg' />
                 </div>
-                <div>
-                  <h3>Web development</h3>
-                  <div>
-                    (HTML5, CSS & Javascript)
-                  </div>
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='css3-img' src='./icons/css3-color.svg' />
                 </div>
-              </div>
-              <div class='skill-content'>
-                <div>
-                  <img alt='web' src='./icons/github.svg' />
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='javascript-img' src='./icons/js_dark-color.svg' />
                 </div>
-                <div>
-                  <h3>JavaScript frameworks</h3>
-                  <div>
-                    (React.Js, Next.Js)
-                  </div>
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='react-img' src='./icons/reactjs-color.svg' />
                 </div>
-              </div>
-              <div class='skill-content'>
-                <div>
-                  <img alt='web' src='./icons/github.svg' />
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='javascript-img' src='./icons/bootstrap-color.svg' />
                 </div>
-                <div>
-                  <h3>Analytics</h3>
-                  <div>
-                    (CleverTap, Google Analytics)
-                  </div>
-                </div>
-              </div>
+            	</div>
             </div>
+            <p class='small-font'>
+              Icon's courtesy: <a target='_blank' href='https://icons8.com'><span>Icons8</span></a>
+            </p>
           </div>
         </section>
         <section id='contact-me-section'>
-          <div class='section-heading sticky-header'>Get in touch <hr /></div>
+          <h1 class='section-heading sticky-header'>Get in touch<hr /></h1>
           <div class='container'>
             <p>
               Always looking for new opportunities & challenges. If you have any, don't hesitate, feel free to drop a mail. I will try my best to respond as soon as possible.
             </p>
-            <div class='contact-section-btns'>
+            <div class='buttons-container'>
               <button id='mailOpt-btn'>
                 <span>Drop a mail</span>
               </button>
@@ -287,17 +275,17 @@
               </button>
             </div>
           </div>
-          <div class='footer'>
+          <div class='footer small-font'>
             <div>
               Ok, bye now <span class='smiley-icon'>&#9787;</span>
             </div>
             <div class='text-right'>
-              Designed & Built by <span class='fg_green'>Deepak Chaudhari</span>
+              Designed & Built by <span class='fg-primary-clr'>Deepak Chaudhari</span>
             </div>
           </div>
         </section>
       </article>
     </main>
   </body>
-  <script type='text/javascript' src='main.js'></script>
+  <script type='text/javascript' src='js/main.js'></script>
 </html>

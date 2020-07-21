@@ -33,9 +33,11 @@ header .header-logo .logo-arrow-icons {
   font-weight: bold;
 }
 .header-list-wrapper > div > div {
-  padding: 5px 0;
-  letter-spacing: .5rem;
+  height: 32.5px;
+  letter-spacing: .45rem;
   color: var(--primary-color);
+  display: grid;
+  place-content: center;
 }
 @media (min-width: 600px) and (max-width: 900px) {
 }
@@ -85,7 +87,6 @@ nav .nav-item {
   width: .65rem;
   overflow: hidden;
   align-items: center;
-  font-size: 1rem;
   justify-content: center;
   letter-spacing: 2px;
   color: var(--primary-color);
@@ -108,61 +109,61 @@ nav .nav-item {
 .nav-item--active {
   width: 7rem !important;
   padding: 0 .8rem !important;
-  color: white !important;
+  color: var(--white) !important;
 }
 /* ------------ END - Side Bar ------------ */
 
 
 /* ------------ Intro section ------------ */
-#home-page-section {
+#home-page-section .container {
+  margin-top: 2rem;
   position: relative;
+  z-index: 1;
 }
 .intro-headings-wrapper {
   /* position: relative; */
-  max-width: 550px;
-  font-size: 2rem;
+  max-width: 580px;
 }
-.intro-headings-wrapper p {
+.intro-headings-wrapper h2 {
   position: relative;
   margin: 0;
 }
 .intro-headings-wrapper h1 {
   font-size: 4rem !important;
+  line-height: 1.5;
   font-weight: bolder;
-  /* text-shadow: 2px 3px 0px var(--light-grey); */
 }
 .intro-headings-wrapper div {
   text-align: right;
   position: relative;
   font-weight: bolder;
 }
-.intro-headings-wrapper p::before, .intro-headings-wrapper div::before {
+.intro-headings-wrapper h2::before {
   position: absolute;
   content: '';
   height: 5px;
   background: var(--active-color);
   border-radius: 100px;
   top: 50%;
-  transition: translateY(-50%);
+  transform: translateY(-50%);
 }
-.intro-headings-wrapper p::before {
+.intro-headings-wrapper h2::before {
   width: 65%;
   right: 0;
 }
-.intro-headings-wrapper div::before {
+.intro-headings-wrapper .text-right::before {
   width: 35%;
   left: 0;
 }
 .intro-section_content {
-  margin-top: 3.5rem;
+  margin: 3rem 0;
   width: 65%
 }
 .landing-page_img {
   position: absolute;
-  right: 0%;
+  right: 3rem;
   z-index: -1;
   top: 40%;
-  /* background-image: url('./images/bob.png'); */
   transform: translateY(-50%);
 }
 .landing-page_img img {
@@ -195,16 +196,7 @@ nav .nav-item {
   transform: translate(-50%, -50%);
   position: absolute;
 }
-.home-btn {
-  text-align: center;
-  margin: 3rem 0;
-  display: flex;
-  justify-content: center;
-}
-.home-btn button {
-  margin-right: 5rem;
-}
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .landing-page_img {
     display: none;
   }
@@ -213,26 +205,24 @@ nav .nav-item {
   }
 }
 @media screen and (max-width: 600px) {
-  .home-btn {
-    flex-direction: column;
-  }
-  .home-btn button {
-    margin-top: 2rem;
-    margin-right: 0;
-    align-self: center;
+  .intro-headings-wrapper h1 {
+    line-height: 1;
   }
   .intro-headings-wrapper {
     width: 100% !important;
     text-align: center;
   }
-  .intro-headings-wrapper p::before, .intro-headings-wrapper div::before {
+  .intro-headings-wrapper h2::before {
     display: none;
   }
-  .intro-headings-wrapper div {
+  .intro-headings-wrapper h2 {
     text-align: center;
   }
   .intro-section_content {
-    margin-top: 2rem;
+    margin: 2rem 0;
+  }
+  #home-page-section .container {
+    margin-top: 1rem;
   }
 }
 @media (max-width: 500px) {
@@ -245,138 +235,9 @@ nav .nav-item {
 }
 /* ------------ END - Intro Section ------------ */
 
-
-/* ------------ About me section ------------ */
-#about-me-section .container {
-  display: grid;
-  grid-auto-flow: column;
-  width: 90%;
-  padding-top: 3rem;
-}
-.user-profile-pic {
-  text-align: center;
-  position: relative;
-}
-.user-profile-pic img {
-  height: 15rem;
-  transition: all .3s ease-in;
-  filter: grayscale(100%);
-}
-.user-profile-pic img:hover {
-  filter: grayscale(0);
-}
-#about-me-section .container a {
-  text-decoration: none;
-}
-@media (max-width: 1000px) {
-  #about-me-section .container {
-    width: 100%;
-  }
-}
-@media (max-width: 700px) {
-  #about-me-section .container {
-    display: grid;
-    grid-auto-flow: row;
-    margin-bottom: 5rem;
-    padding-top: 1rem;
-  }
-  #about-me-section .about-me-info {
-    order: 2;
-  }
-}
-/* ------------ END - About me section ------------ */
-
-/* ------------ Skills Section ------------ */
-#skills-section {
-}
-.skills-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
-}
-.skills-container .skill-content {
-  display: flex;
-  align-items: center;
-}
-.skill-content img {
-  width: 2rem;
-  height: auto;
-}
-@media (min-width: 600px) and (max-width: 1020px) {
-  .skills-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 600px) {
-  .skills-container {
-    grid-template-columns: 1fr;
-  }
-}
-/* ------------ END - Skills Section ------------ */
-
-
-/* ------------ Experience section ------------ */
-#timeline-section .container {
-  padding-left: .5rem;
-  padding-right: .5rem;
-}
-#timeline-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  margin: 0 auto;
-}
-.timeline-content {
-  width: 90%;
-  height: fit-content;
-  background: var(--primary-color);
-  box-shadow: 0 0 12px 0 var(--shadow-color);
-  margin-bottom: 4.5rem;
-}
-.timeline-content > div {
-  padding: 2rem;
-}
-.timeline-content .timeline-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--white);
-  border-bottom: 5px solid var(--primary-color)
-}
-.timeline-content .content-descp {
-  position: relative;
-  background: var(--background-color);
-}
-.timeline-content .company-logo {
-  height: 50px;
-  width: 50px;
-  padding: .5rem;
-  background: var(--white);
-  border-radius: 50%;
-  position: absolute;
-  top: -1.8rem;
-  left: 50%;
-  transform: translateX(-50%)
-}
-.timeline-content .content-descp ul {
-  padding-left: 1.2rem;
-}
-.timeline-content .content-descp ul li {
-  padding-bottom: .5rem;
-}
-@media (max-width: 900px) {
-  #timeline-container {
-      grid-template-columns: 1fr;
-  }
-}
-/* ------------ END - Experience section ------------ */
-
 /* ------------ Work section ------------ */
 #projects-section {
   height: fit-content;
-}
-#projects-section .container {
-  padding-left: .5rem;
-  padding-right: .5rem;
 }
 .project ul {
   padding: 0;
@@ -386,20 +247,20 @@ nav .nav-item {
 .project ul li {
   margin-right: 20px;
 }
-
 .project-tech-stack {
   font-weight: lighter;
-  font-size: .8rem;
+}
+.project-links, .project-tech-stack {
+  margin: 1rem 0;
 }
 .project-links li {
   margin: 0 4px;
 }
 .project-links img {
-  height: 1.5rem;
+  height: 2rem;
   width: auto;
   border-radius: 50%;
   background: var(--white);
-  border: 2px solid var(--white);
 }
 
 .project {
@@ -423,7 +284,6 @@ nav .nav-item {
 }
 .project-content {
   z-index: 5;
-  font-size: 1rem;
 }
 .project-img {
   z-index: 3;
@@ -446,7 +306,7 @@ nav .nav-item {
   color: var(--primary-color);
 }
 .project .project-details p {
-  background-color: var(--project-content-color);
+  background-color: var(--project-content-background);
   padding: 1.2rem 1.5rem;
   margin: 0;
 }
@@ -457,18 +317,21 @@ nav .nav-item {
   max-width: 500px;
   display: none;
 }
-
-.projects-btn {
-  text-align: center;
-}
-
 @media (max-width: 600px) {
   .project-content {
     grid-column: 1 / -1 !important;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     text-align: left !important;
-    border: 1px solid var(--shadow-border_color);
-    box-shadow: 0 0 12px 0 var(--shadow-color);
+    background: var(--project-content-background);
+  }
+  .project-tech-stack {
+    margin: 0;
+  }
+  .project-links {
+    margin: 0;
+  }
+  .project .project-title {
+    margin: 0;
   }
   .project-img {
     grid-column: 1/ -1 !important;
@@ -478,7 +341,7 @@ nav .nav-item {
     opacity: .25;
   }
   .project .project-details p {
-    padding: 1.5rem;
+    padding: 1rem 0;
   }
 }
 @media screen and (max-width: 768px) {
@@ -490,43 +353,176 @@ nav .nav-item {
 /* ------------ END - Work section ------------ */
 
 
+/* ------------ Experience section ------------ */
+#timeline-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3rem;
+  grid-row-gap: 1rem;
+}
+.timeline-card {
+  background: var(--card-background-color);
+  height: fit-content;
+  box-shadow: 0 0 12px 0 var(--light-grey);
+}
+.timeline-card > div {
+  padding: 2rem;
+}
+.timeline-card .timeline-heading {
+  font-weight: bold;
+  color: var(--white);
+  padding: 2rem;
+  border-bottom: 4px solid var(--primary-color);
+}
+.timeline-card .content-descp {
+  position: relative;
+  background: var(--background-color);
+}
+.timeline-card .content-descp p {
+  margin: 1rem 0;
+}
+.timeline-card .company-logo {
+  height: 50px;
+  width: 50px;
+  padding: .5rem;
+  background: var(--white);
+  border-radius: 50%;
+  position: absolute;
+  top: -2.2rem;
+  left: 50%;
+  transform: translateX(-50%)
+}
+.timeline-card .content-descp ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+.timeline-card .content-descp ul li {
+  padding-bottom: .5rem;
+}
+@media (max-width: 1105px) {
+  #timeline-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .timeline-card > div {
+    padding: 1rem;
+  }
+  .timeline-card .timeline-heading {
+    padding: 2rem 1rem;
+  }
+}
+/* ------------ END - Experience section ------------ */
+
+/* ------------ About me section ------------ */
+#about-me-section .container {
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-columns: 60% 40%;
+  grid-row-gap: 1rem;
+}
+.user-profile-pic {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.user-profile-pic img {
+  height: 15rem;
+  transition: all .3s ease-in;
+  filter: grayscale(100%);
+}
+.user-profile-pic img:hover {
+  filter: grayscale(0);
+}
+@media (max-width: 800px) {
+  #about-me-section .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #about-me-section .about-me-info {
+    order: 2;
+  }
+}
+/* ------------ END - About me section ------------ */
+
+/* ------------ Skills Section ------------ */
+#skills-section {
+  position: relative;
+}
+#skills-section .container {
+  display: grid;
+  place-content: center
+}
+#skills-section .container > div {
+  display: flex;
+  max-width: 500px;
+  flex-wrap: wrap;
+  place-content: center;
+}
+.note-text {
+  position: absolute;
+  right: 2rem;
+  bottom: 0rem;
+}
+.hex-box {
+  display: grid;
+  place-content: center;
+  margin: .25rem;
+}
+.hex-box .hex-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.8rem 0;
+}
+.hex-content img {
+  z-index: 2;
+  position: absolute;
+  height: 80px;
+}
+.hex-box:nth-child(6n+4), .hex-box:nth-child(6n+5), .hex-box:nth-child(6n+6) {
+  margin-top: -2.5rem;
+}
+/* .hex-box:nth-child(4), .hex-box:nth-child(5) {
+  margin-top: -2.5rem;
+}
+@media (max-width: 680px) {
+  .hex-box:nth-child(3) {
+    margin-top: -2.5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+} */
+/* ------------ END - Skills Section ------------ */
+
+
 /* ------------ Contact me section ------------ */
 #contact-me-section {
-  height: 95%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
 }
-.contact-section-btns {
-  display: flex;
-  justify-content: center;
-}
 #contact-me-section .container p {
   width: 80%;
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
-.contact-section-btns button {
-  margin-right: 5rem;
+@media (max-width: 800px) {
+  #contact-me-section .container p {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
 }
 @media (max-width: 600px) {
   #contact-me-section .container p {
-    width: 100% !important;
-  }
-  .contact-section-btns {
-    flex-direction: column;
-  }
-  .contact-section-btns button {
-    margin-top: 2rem;
-    margin-right: 0;
-    align-self: center;
+    margin-bottom: 2rem;
   }
 }
 .footer {
   margin-top: auto;
   border-top: 2px solid var(--primary-color);
   display: flex;
-  font-size: .8rem;
   padding: 1rem 0;
 }
 .smiley-icon {
@@ -542,7 +538,7 @@ nav .nav-item {
 }
 @media (max-width: 900px) {
   .footer {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 }
 /* @media (max-width: 600px) {
