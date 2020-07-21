@@ -125,7 +125,7 @@ const initialize = () => {
       }
     })
   }, {
-    rootMargin: '-20% 0% -60% 0%'
+    rootMargin: '-16.5% 0% -60% 0%'
   })
   const sectionHeadersList = document.querySelectorAll('.section-heading')
   sectionHeadersList.forEach(ele => {

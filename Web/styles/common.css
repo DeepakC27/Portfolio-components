@@ -26,11 +26,11 @@
 
   --h1-fontSize: 2.5rem;
   --h2-fontSize: 2rem;
+  --body-fontSize: 1rem;
+  --sm-fontSize: .8rem;
 
   --shadow-border_color: #d9d9d900;
   --shadow-color: #d9d9d9;
-
-  --bottom-top_slideIn_val: 30%;
 
   --button-txt-color: var(--primary-color);
   --button-bck-color: transparent;
@@ -39,9 +39,10 @@
 
  @media (max-width: 600px) {
   :root {
-    --bottom-top_slideIn_val: 20%;
-    --h1-fontSize: 2rem;
-    --h2-fontSize: 1.5rem;
+    --h1-fontSize: 1.65rem;
+    --h2-fontSize: 1.3rem;
+    --body-fontSize: .8rem;
+    --sm-fontSize: .65rem;
   }
 }
 .dark-mode {
@@ -53,7 +54,7 @@
   --loader-color: var(--white);
   --theme-font-weight: bold;
   --nav-border: var(--secondary-color);
-  --body-font-weight: 500;
+  --body-fontSize-weight: 500;
   --active-color: var(--white);
 }
 
@@ -95,11 +96,13 @@ a span {
 .rm_tm {
   margin-top: 0;
 }
-
+.small-font {
+  font-size: var(--sm-fontSize);
+}
 body {
   margin: 0;
   height: 100vh;
-  font-size: 1rem;
+  font-size: var(--body-fontSize);
   /* font-family: sans-serif; */
   font-family: 'Fira Sans', sans-serif;
   display: flex;
@@ -120,12 +123,14 @@ body {
 main {
   height: 100%;
   overflow: scroll;
+  -webkit-overflow-scrolling: auto;
   position: relative;
   margin-top: 0 !important;
 }
 article {
   height: 100%;
-  overflow-y: scroll;
+  overflow: scroll;
+  -webkit-overflow-scrolling: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -160,6 +165,9 @@ section hr {
 hr.appear{
   width: 150px;
   transition: width .6s ease-in-out;
+}
+.note-text {
+  font-size: .8rem;
 }
 
 main::-webkit-scrollbar, article::-webkit-scrollbar {

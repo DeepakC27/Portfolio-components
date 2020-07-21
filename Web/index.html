@@ -9,12 +9,11 @@
     <meta name='keywords' content='Deepak, Chaudhari, Deepak Chaudhari, front-end developer,
       React Js, javascript, Mumbai, Resume, Portfolio'
     />
-    <!-- rel='dns-prefetch'  -->
-    <link rel='dns-prefetch stylesheet'
-      href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap' />
+    <!-- <link rel='dns-prefetch stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap' /> -->
     <link rel='shortcut icon' type='image/png' href='./icons/favicon.png' />
-    <link rel='stylesheet' type='text/css' href='common.css' />
-    <link rel='stylesheet' type='text/css' href='main.css' />
+    <link rel='stylesheet' type='text/css' href='./styles/common.css' />
+    <link rel='stylesheet' type='text/css' href='./styles/main.css' />
     <title lang='en'>Deepak | Front-end developer</title>
   </head>
   <body class='dark-mode'>
@@ -59,9 +58,9 @@
         <section id='home-page-section'>
           <div class='container'>
             <div class='intro-headings-wrapper'>
-                <p>Hi there, I'm</p>
+                <h2>Hi there, I'm</h2>
                 <h1 class='fg-primary-clr'>Deepak Chaudhari</h1>
-                <div>Developer & Explorer</div>
+                <h2 class='text-right'>Developer & Explorer</h2>
               </div>
             <div class='landing-page_img fade-in'>
               <img alt='bob' src='./images/bob.png' />
@@ -93,7 +92,7 @@
                 <h4 class='project-title'>Video Conferencing App</h4>
                 <div class='project-details'>
                   <p>Video conferencing web app using meet.jit.si.</p>
-                  <ul class='project-tech-stack'>
+                  <ul class='project-tech-stack small-font'>
                     <li>React JS</li>
                     <li>HTML & SCSS</li>
                     <li>Bootstrap</li>
@@ -127,7 +126,7 @@
                 <h4 class='project-title'>Pac man</h4>
                 <div class='project-details'>
                   <p>Extensive use of JS to create dynamic elements & displaying animated effects.</p>
-                  <ul class='project-tech-stack mb10'>
+                  <ul class='project-tech-stack mb10 small-font'>
                     <li>Vanilla JS</li>
                     <li>HTML & CSS</li>
                   </ul>
@@ -229,23 +228,35 @@
         <section id='skills-section'>
           <h1 class='section-heading sticky-header'>Skills <hr /></h1>
           <div class='container'>
-            <div class='hex-box'>
-              <div class='hex-content'>
-                <img alt='javascript-img' src='./icons/js_dark-color.svg' />
-              </div>
-          	</div>
-            <div class='hex-box'>
-              <div class='hex-content'>
-                <img alt='javascript-img' src='./icons/reactjs-color.svg' />
-              </div>
-          	</div>
-            <div class='hex-box'>
-              <div class='hex-content'>
-                <img alt='javascript-img' src='./icons/html5-color.svg' />
-              </div>
-          	</div>
-            <p class='note-text'>
-              Icon's used from <a target='_blank' href='https://icons8.com'><span>Icons8</span></a>
+            <div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='html5-img' src='./icons/html5-color.svg' />
+                </div>
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='css3-img' src='./icons/css3-color.svg' />
+                </div>
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='javascript-img' src='./icons/js_dark-color.svg' />
+                </div>
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='react-img' src='./icons/reactjs-color.svg' />
+                </div>
+            	</div>
+              <div class='hex-box'>
+                <div class='hex-content'>
+                  <img alt='javascript-img' src='./icons/bootstrap-color.svg' />
+                </div>
+            	</div>
+            </div>
+            <p class='note-text small-font'>
+              Icon's courtesy: <a target='_blank' href='https://icons8.com'><span>Icons8</span></a>
             </p>
           </div>
         </section>
@@ -264,7 +275,7 @@
               </button>
             </div>
           </div>
-          <div class='footer'>
+          <div class='footer small-font'>
             <div>
               Ok, bye now <span class='smiley-icon'>&#9787;</span>
             </div>
@@ -276,5 +287,5 @@
       </article>
     </main>
   </body>
-  <script type='text/javascript' src='main.js'></script>
+  <script type='text/javascript' src='js/main.js'></script>
 </html>
